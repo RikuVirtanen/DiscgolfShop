@@ -30,10 +30,10 @@ const useStyles = makeStyles({
         height: '8vh',
         margin: 8,
         marginLeft: '20vh',
-        border: '1px solid red'
     },
     logo: {
-
+        height: '10vh',
+        width: '10vh'
     },
     footer: {
         display: 'flex',
@@ -65,7 +65,7 @@ function MainNavMUI() {
                 centered
                 >
                     <Button onClick={ value === 1 && <MainPage /> } className={ classes.container }>
-                        <Typography className={ classes.logo}>LOGO</Typography>
+                        <img className={ classes.logo} src="images/Logo.png" alt="logo" />
                     </Button>
                     <Tab className={ classes.tab } label='Etusivu'/>
                     <Tab className={ classes.tab } label='Tuotteet'/>

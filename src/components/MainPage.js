@@ -1,8 +1,7 @@
 import React from "react";
 //import { styled } from '@mui/material/styles'
-import { Box, Typography, Grid, Paper } from '@mui/material';
+import { Box, Typography, Grid, Paper, CardMedia } from '@mui/material';
 import CarouselMUI from '../MUI/CarouselMUI';
-import Footer from "./Footer";
 
 /*const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -57,6 +56,7 @@ function MainPage() {
                     </Grid>
                     <Grid item xs={12}>
                         <Box textAlign='center'>
+                            <CardMedia img="/bag.jpg"/>
                             <Typography color='text.secondary' variant='h5'>Tervetuloa</Typography>
                             <Typography color='text.secondary'>Suomen suurimpaan frisbeegolf kauppaan</Typography>
                         </Box>
