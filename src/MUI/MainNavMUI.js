@@ -1,51 +1,62 @@
-import React, { useState } from "react";
-import { Box, Button, Tab, Tabs, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, Tab, Tabs, Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import Products from './ProductsMUI'
 import MainPage from '../components/MainPage'
 import ShoppingCart from "../components/Cart";
 import Info from "../components/Info";
-import Footer from "../components/Footer";
 
 const useStyles = makeStyles({
-    box: {
+    mainContainer: {
+        display: 'flex',
         width: '100%',
-        height: '10vh',
-        backgroundColor: 'black',
+        height: '100%',
     },
-    mainNav: {
+    header: {
+        display: 'block',
+        width: '100%',
+        backgroundColor: 'black',
+        position: 'fixed',
+        height: '13vh',
+        zIndex: 1
+    },
+    navContainer: {
+        padding: 10,
+    },
+    nav: {
         width: '100vh',
-        height: '10vh',
-        backgroundColor: 'black',
-    },
-    tab: {
-        color: '#FFFFFF',
-        fontSize: '12px'
     },
     container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '30vh',
-        height: '8vh',
-        margin: 8,
-        marginLeft: '20vh',
+        flexGrow: 1,
+        marginTop: '7rem',
+        marginBottom: '1rem'
     },
     logo: {
-        height: '10vh',
-        width: '10vh'
-    },
-    footer: {
         display: 'flex',
-        alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'black',
-        height: '20vh'
+        alignItems: 'center',
+        width: '1rem',
+        height: '1rem'
+    },
+    img: {
+        height: '5rem',
+        width: '5rem'
     }
+
 })
 
 function MainNavMUI() {
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(0);
+
+    /*const [show, setShow] = useState(true);
+
+    const handleNavbar = () => {
+        if(window.scrollY > 100) {
+            setShow(false);
+        } else {
+            setShow(true);
+        }
+    }*/
 
     const handleChange = (e, val) => {
         setValue(val);
@@ -53,36 +64,43 @@ function MainNavMUI() {
 
     const classes = useStyles();
 
+    /*useEffect( () => {
+        window.addEventListener('scroll', 
+        handleNavbar)
+        return () => {
+            window.removeEventListener('scroll',
+            handleNavbar)
+        }
+    }, [] );*/
+
     return (
-        <Box className={ classes.box }>
-            <Box className={ classes.mainNav }> 
-                <Tabs 
-                value={ value } 
-                onChange={ handleChange } 
-                variant='fullWidth' 
-                textColor={ '#FFFFFF' }
-                indicatorColor={ 'secondary' }
-                centered
-                >
-                    <Button onClick={ value === 1 && <MainPage /> } className={ classes.container }>
-                        <img className={ classes.logo} src="images/Logo.png" alt="logo" />
-                    </Button>
-                    <Tab className={ classes.tab } label='Etusivu'/>
-                    <Tab className={ classes.tab } label='Tuotteet'/>
-                    <Tab className={ classes.tab } label='Ostoskori'/>
-                    <Tab className={ classes.tab } label='Tietoa'/>
-                </Tabs>
+        <Box className={ classes.mainContainer } >
+            <Box className={ classes.header } >
+                <Grid container spacing={15} className={ classes.navContainer } >
+                    <Grid item sx={1} >
+                        <img className={ classes.img } src="images/Logo.png" alt="" />
+                    </Grid>
+                    <Grid item sx={1} className={ classes.nav }> 
+                        <Tabs 
+                        value={ value } 
+                        onChange={ handleChange } 
+                        variant='fullWidth' 
+                        textColor={ '#FFFFFF' }
+                        indicatorColor={ 'secondary' }
+                        centered >
+                            <Tab label='Etusivu'/>
+                            <Tab label='Tuotteet'/>
+                            <Tab label='Ostoskori'/>
+                            <Tab label='Tietoa'/>
+                        </Tabs>
+                    </Grid>
+                </Grid>
             </Box>
-            <Box>
-                { value === 1 && <MainPage /> }
-                { value === 2 && <Products /> }
-                { value === 3 && <ShoppingCart /> }
-                { value === 4 && <Info /> }
-                { value === 5   } 
-                { value === 6   } 
-            </Box>
-            <Box className={ classes.footer }>
-                <Footer />
+            <Box className={ classes.container } >
+                { value === 0 && <MainPage /> }
+                { value === 1 && <Products /> }
+                { value === 2 && <ShoppingCart /> }
+                { value === 3 && <Info /> }
             </Box>
         </Box>
     );

@@ -1,57 +1,40 @@
 import React from "react";
-import { Box, Typography, Grid, Paper } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+    main: {
+        justifyContent: 'center',
+    },
+    paper: {
+        minHeight: '150vh',
+    }
+});
 
 function ShoppingCart() {
 
+    const classes = useStyles();
+
     return (
-        <Box
-            display="flex"
-            justify="center"
-            minHeight="80vh"
-        >
-            <Grid 
-            container 
-            direction='row'
-            width={300} 
-            justifyContent="center" 
-            alignItems='center'
-            margin={1} 
-            spacing={1} 
-            
-            >
-        </Grid>
-        <Grid 
-            container 
-            justify="center" 
-            alignItems='center' 
-            margin={1} 
-            spacing={1}
-        >
-            <Paper >
-                <Grid container spacing={1} width='150vh' height='80vh'>
-                    <Grid item xs={12}>
-                        
+        <Grid container spacing={1} className={ classes.main } >
+            <Grid item xs >
+            </Grid>
+            <Grid item xs={8} >
+                <Paper className={ classes.paper } >
+                    <Grid container spacing={1} >
+                        <Grid item xs={12}> 
+                        </Grid>
+                        <Grid item xs={12}>
+                        </Grid>
+                        <Grid item xs={12}>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Box textAlign='center'>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Box></Box>
-                    </Grid>
-                </Grid>
-            </Paper>
-        </Grid>
-        <Grid 
-            container 
-            width={300} 
-            justify="center" 
-            alignItems='center' 
-            margin={1} 
-            spacing={1}
-        >
-        </Grid>
-        </Box>
+                </Paper>
+            </Grid>
+            <Grid item xs >
+            </Grid>
+        </Grid> 
+        
         
     );
 }

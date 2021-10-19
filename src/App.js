@@ -3,6 +3,7 @@ import MainNavMUI from './MUI/MainNavMUI';
 import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
+import Footer from "./components/Footer";
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //import MainPage from './components/MainPage';
 
@@ -19,15 +20,19 @@ const theme = createTheme({
     color: 'primary'
   },
   overrides: {},
+
 });
 
 function App() {
 
   return (
     <ThemeProvider theme= { theme }>
-      <Box>
-        <CssBaseline />
-        <MainNavMUI />
+      <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}> 
+        <Box sx={{flex: 1}}>
+          <CssBaseline />
+          <MainNavMUI />
+        </Box>
+        <Footer /> 
       </Box>
     </ThemeProvider>
   );

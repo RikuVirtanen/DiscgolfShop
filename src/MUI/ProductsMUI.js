@@ -1,44 +1,28 @@
 import React from 'react';
-import { Box, Grid, Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 import ProductNavMUI from './ProductNavMUI';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+    main: {
+        justifyContent: 'center',
+    },
+});
 
 function Products() {
 
+    const classes = useStyles();
+
     return (
-        <Box
-            display="flex"
-            justify="center"
-            minHeight="80vh"
-        >
-            <Grid 
-                container 
-                direction='row'
-                width={300} 
-                justifyContent="center" 
-                alignItems='center'
-                margin={1} 
-                spacing={1}
-            >
+        <Grid container spacing={1} className={ classes.main } >
+            <Grid item xs >
             </Grid>
-            <Grid 
-                container 
-                justify="center" 
-                margin={1} 
-                spacing={1}>
-                <Paper>
-                    <ProductNavMUI />
-                </Paper>
+            <Grid item xs={8} >
+                <ProductNavMUI />
             </Grid>
-            <Grid 
-                container 
-                width={300} 
-                justify="center" 
-                alignItems='center' 
-                margin={1} 
-                spacing={1}
-            >
+            <Grid item xs >
             </Grid>
-        </Box>
+        </Grid>
     );
 }
 

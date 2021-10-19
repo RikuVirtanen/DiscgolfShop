@@ -1,83 +1,43 @@
 import React from "react";
-//import { styled } from '@mui/material/styles'
-import { Box, Typography, Grid, Paper, CardMedia } from '@mui/material';
+import { Box, Typography, Grid, Paper } from '@mui/material';
 import CarouselMUI from '../MUI/CarouselMUI';
+import { makeStyles } from '@mui/styles';
 
-/*const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));*/
+const useStyles = makeStyles({
+    main: {
+        justifyContent: 'center',
+    },
+    container: {
+        display: 'block',
+        textAlign: 'center',
+    },
+    paper: {
+        minHeight: '150vh',
+    }
+})
 
 function MainPage() {
 
+    const classes = useStyles();
+
     return (
-        <Box
-                display="flex"
-                justify="center"
-                minHeight="80vh"
-            >
-            <Grid 
-                container 
-                direction='row'
-                width={300} 
-                justifyContent="center" 
-                alignItems='center'
-                margin={1} 
-                spacing={1} 
-            >
-            {/*<Grid item xs={12} >
-                <Item>one</Item>
+        <Grid container spacing={1} className={ classes.main } >
+            <Grid item xs >
             </Grid>
-            <Grid item xs={12}>
-                <Item>two</Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item>three</Item>
-            </Grid>*/}
-        </Grid>
-        <Grid 
-            container 
-            justify="center" 
-            alignItems='center' 
-            margin={1} 
-            spacing={1}
-        >
-            <Paper >
-                <Grid 
-                    container 
-                    spacing={1} 
-                    width='150vh' 
-                    height='80vh'
-                >
-                    <Grid item xs={12}>
+            <Grid item xs={8} >
+                <Paper className={ classes.paper } >
+                    <Box className={ classes.container } >
                         <CarouselMUI />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Box textAlign='center'>
-                            <CardMedia img="/bag.jpg"/>
-                            <Typography color='text.secondary' variant='h5'>Tervetuloa</Typography>
-                            <Typography color='text.secondary'>Suomen suurimpaan frisbeegolf kauppaan</Typography>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Box></Box>
-                    </Grid>
-                </Grid>
-            </Paper>
+                    </Box>
+                    <Box className={ classes.container } >
+                        <Typography color='text.secondary' variant='h5'>Tervetuloa</Typography>
+                        <Typography color='text.secondary'>Suomen suurimpaan frisbeegolfkauppaan</Typography>
+                    </Box>
+                </Paper>
+            </Grid>
+            <Grid item xs >
+            </Grid>
         </Grid>
-        <Grid 
-            container 
-            width={300} 
-            justify="center" 
-            alignItems='center' 
-            margin={1} 
-            spacing={1}
-        >
-        </Grid>
-        </Box>
-        
     );
 }
 

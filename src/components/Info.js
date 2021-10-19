@@ -1,61 +1,60 @@
 import React from "react";
-import { Box, Grid, Paper, Typography } from '@mui/material'
+import { Box, Typography, Grid, Paper } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+    main: {
+        justifyContent: 'center',
+    },
+    paper: {
+        minHeight: '150vh',
+    }
+});
 
 function Info() {
+
+    const classes = useStyles();
+
     return (
-        <Box
-            display="flex"
-            justify="center"
-            minHeight="80vh"
-            >
-            <Grid 
-            container 
-            direction='row'
-            width={300} 
-            justifyContent="center" 
-            alignItems='center'
-            margin={1} 
-            spacing={1} 
-            
-            >
-            {/*<Grid item xs={12} >
-                <Item>one</Item>
+        <Grid container spacing={1} className={ classes.main } >
+            <Grid item xs >
             </Grid>
-            <Grid item xs={12}>
-                <Item>two</Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item>three</Item>
-            </Grid>*/}
-        </Grid>
-        <Grid container justify="center" alignItems='center' margin={1} spacing={1}>
-            <Paper >
-                <Grid container spacing={1} width='150vh' height='80vh'>
-                    <Grid item xs={12}>
+            <Grid item xs={8} >
+                <Paper className={ classes.paper } >
+                    <Grid container spacing={1} >
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
+                        <Grid item xs={12}>
+                            
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Box textAlign='center'>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Box></Box>
-                    </Grid>
-                </Grid>
-            </Paper>
-        </Grid>
-        <Grid container width={300} justify="center" alignItems='center' margin={1} spacing={1}>
-            {/*<Grid item xs={12}>
-                <Item>one</Item>
+                </Paper>
             </Grid>
-            <Grid item xs={12}>
-                <Item>two</Item>
+            <Grid item xs >
             </Grid>
-            <Grid item xs={12}>
-                <Item>three</Item>
-        </Grid>*/}
         </Grid>
-        </Box>
-        
     );
 }
 
