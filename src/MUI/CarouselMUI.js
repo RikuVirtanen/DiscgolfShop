@@ -17,7 +17,13 @@ function CarouselMUI() {
         },
         {
             image: "images/redshirt.jpg"
-        }
+        },
+        {
+            image: "images/11th.jpg"
+        },
+        {
+            image: "images/throw.jpg"
+        },
     ]
 
     return (

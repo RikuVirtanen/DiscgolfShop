@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Box, Grid, Paper } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import VerticalTabs from '../MUI/TabPanelMUI';
+import { Box, Grid } from '@mui/material';
 import DiscCard from "./DiscCard";
 import Discs from '../discs.json';
 
@@ -22,13 +20,26 @@ function DGlist(props) {
             id: discs.length + 1}]);
     }*/
 
+    if (props.type === 'all') {
+        return (
+            <Box>
+                <Grid container spacing={3} >
+                    {discs.map( (disc) => (
+                        <Grid item key={disc.id} xs={4}>
+                            <DiscCard disc={disc} />
+                        </Grid> ))}
+                </Grid>
+            </Box>
+        );
+    }
+
     return (
-        <Box margin='20px'>
+        <Box>
             <Grid container spacing={3} >
                 {discs.map( (disc) => (
                     disc.type.toLowerCase() === props.type 
                     ? 
-                    (<Grid item key={disc.id} xs={2.8}>
+                    (<Grid item key={disc.id} xs={4}>
                         <DiscCard disc={disc} />
                     </Grid>) 
                     : null

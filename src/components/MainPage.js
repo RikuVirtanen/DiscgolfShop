@@ -7,9 +7,14 @@ const useStyles = makeStyles({
     main: {
         justifyContent: 'center',
     },
+    carouselContainer: {
+        display: 'block',
+        textAlign: 'center',
+    },
     container: {
         display: 'block',
         textAlign: 'center',
+        marginTop: 50
     },
     paper: {
         minHeight: '150vh',
@@ -26,7 +31,7 @@ function MainPage() {
             </Grid>
             <Grid item xs={8} >
                 <Paper className={ classes.paper } >
-                    <Box className={ classes.container } >
+                    <Box className={ classes.carouselContainer } >
                         <CarouselMUI />
                     </Box>
                     <Box className={ classes.container } >

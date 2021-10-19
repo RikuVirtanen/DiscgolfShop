@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import Footer from "./components/Footer";
+//import './App.css';
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //import MainPage from './components/MainPage';
 

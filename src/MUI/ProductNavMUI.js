@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Tab, Tabs, Paper } from "@mui/material";
+import { Box, Tab, Tabs, Paper, Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import DGlist from '../components/DGlist';
 
@@ -11,9 +11,10 @@ const useStyles = makeStyles({
         backgroundColor: '#FFFFFF',
     },
     nav: {
+        position: 'fixed',
+        left: 325,
         backgroundColor: '#FFFFFF',
     },
-    
 })
 
 function ProductNavMUI() {
@@ -27,26 +28,35 @@ function ProductNavMUI() {
 
     return (
         <Paper className={ classes.paper }>
+            <Grid container spacing={1}>
+                <Grid item xs={3} >
             <Box className={ classes.nav}> 
                 <Tabs 
+                orientation='vertical'
                 value={ value } 
                 onChange={ handleChange } 
-                variant='fullWidth' 
+                variant='scrollable' 
                 textColor={ 'primary' }
                 indicatorColor={ 'primary' }
                 centered >
+                    <Tab label='Kaikki' />
                     <Tab label='Draiverit' />
                     <Tab label='Väylädraiverit' />
                     <Tab label='Midarit' />
                     <Tab label='Putterit' />
                 </Tabs>
             </Box>
+            </Grid>
+            <Grid item xs >
             <Box>
-                { value === 0 && <DGlist type={'driver'} /> }
-                { value === 1 && <DGlist type={'fairway driver'} /> }
-                { value === 2 && <DGlist type={'midrange'} /> }
-                { value === 3 && <DGlist type={'putter'} /> } 
+                { value === 0 && <DGlist type={'all'} /> }
+                { value === 1 && <DGlist type={'driver'} /> }
+                { value === 2 && <DGlist type={'fairway driver'} /> }
+                { value === 3 && <DGlist type={'midrange'} /> }
+                { value === 4 && <DGlist type={'putter'} /> } 
             </Box>
+            </Grid>
+            </Grid>
         </Paper>
     );
 }
