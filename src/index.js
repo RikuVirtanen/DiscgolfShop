@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import SignUpForm from './components/SignUpForm';
-//import DGForm from './components/DGForm'
 
 ReactDOM.render(
   <React.StrictMode>

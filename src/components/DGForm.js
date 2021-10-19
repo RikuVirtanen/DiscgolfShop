@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { ThemeContext } from '../Training/ThemeContext';
 
 function DGForm({addDisc}) {
 

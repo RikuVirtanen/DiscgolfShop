@@ -1,0 +1,173 @@
+[
+    {
+        "name": "Tern", 
+        "company": "Innova", 
+        "type": "Driver",
+        "speed": 12, 
+        "glide": 6, 
+        "turn": -3, 
+        "fade": 2, 
+        "id": 1
+    },
+    {
+        "name": "Destroyer", 
+        "company": "Innova", 
+        "type": "Driver",
+        "speed": 12, 
+        "glide": 5, 
+        "turn": -1, 
+        "fade": 3, 
+        "id": 2
+    },
+    {
+        "name": "Corvette", 
+        "company": "Innova", 
+        "type": "Driver",
+        "speed": 14, 
+        "glide": 6, 
+        "turn": -2, 
+        "fade": 2, 
+        "id": 3
+    },
+    {
+        "name": "Teebird3", 
+        "company": "Innova", 
+        "type": "Fairway Driver",
+        "speed": 8, 
+        "glide": 4, 
+        "turn": 0, 
+        "fade": 2, 
+        "id": 4
+    },
+    {
+        "name": "DX Aviar", 
+        "company": "Innova", 
+        "type": "Putter",
+        "speed": 2, 
+        "glide": 3, 
+        "turn": 0, 
+        "fade": 1, 
+        "id": 5
+    },
+    {
+        "name": "DX Shark", 
+        "company": "Innova", 
+        "type": "Midrange",
+        "speed": 4, 
+        "glide": 4, 
+        "turn": 0, 
+        "fade": 2, 
+        "id": 6
+    },
+    {
+        "name": "Geo Origin", 
+        "company": "Discmania Evolution", 
+        "type": "Midrange",
+        "speed": 5, 
+        "glide": 5, 
+        "turn": -1, 
+        "fade": 1, 
+        "id": 7
+    },
+    {
+        "name": "Method", 
+        "company": "Discmania Evolution", 
+        "type": "Midrange",
+        "speed": 5, 
+        "glide": 5, 
+        "turn": 0, 
+        "fade": 3, 
+        "id": 8
+    },
+    {
+        "name": "XT Nova", 
+        "company": "Innova", 
+        "type": "Putter",
+        "speed": 2, 
+        "glide": 3, 
+        "turn": 0, 
+        "fade": 0, 
+        "id": 9
+    },
+    {
+        "name": "Maestro", 
+        "company": "Discmania", 
+        "type": "Midrange",
+        "speed": 4, 
+        "glide": 3, 
+        "turn": 0, 
+        "fade": 2, 
+        "id": 10
+    },
+    {
+        "name": "C-Line", 
+        "company": "Discmania", 
+        "type": "Midrange",
+        "speed": 5, 
+        "glide": 5, 
+        "turn": 0, 
+        "fade": 1, 
+        "id": 11
+    },
+    {
+        "name": "Link", 
+        "company": "Discmania Evolution", 
+        "type": "Putter",
+        "speed": 2, 
+        "glide": 3, 
+        "turn": 0, 
+        "fade": 1, 
+        "id": 12
+    },
+    {
+        "name": "Sensei", 
+        "company": "Discmania Evolution", 
+        "type": "Putter",
+        "speed": 3, 
+        "glide": 3, 
+        "turn": 0, 
+        "fade": 1, 
+        "id": 13
+    },
+    {
+        "name": "Logic", 
+        "company": "Discmania Evolution", 
+        "type": "Putter",
+        "speed": 3, 
+        "glide": 3, 
+        "turn": 0, 
+        "fade": 1, 
+        "id": 14
+    },
+    {
+        "name": "Ballista", 
+        "company": "Latitude 64", 
+        "type": "Driver",
+        "speed": 14, 
+        "glide": 5, 
+        "turn": -1, 
+        "fade": 3, 
+        "id": 15
+    },
+    {
+        "name": "Bolt", 
+        "company": "Latitude", 
+        "type": "Driver",
+        "speed": 13, 
+        "glide": 6, 
+        "turn": -2, 
+        "fade": 3, 
+        "id": 16
+    },
+    {
+        "name": "Halo", 
+        "company": "Latitude 64", 
+        "type": "Driver",
+        "speed": 13, 
+        "glide": 5, 
+        "turn": -0.5, 
+        "fade": 3, 
+        "id": 17
+    }
+
+]
