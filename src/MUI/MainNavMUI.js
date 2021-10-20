@@ -5,7 +5,7 @@ import Products from './ProductsMUI'
 import MainPage from '../components/MainPage'
 import ShoppingCart from "../components/Cart";
 import Info from "../components/Info";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DrawerMUI from "./DrawerMUI";
 
 const useStyles = makeStyles({
     mainContainer: {
@@ -39,18 +39,16 @@ const useStyles = makeStyles({
         height: '5rem',
         width: '5rem'
     },
-    cart: {
-        left: '1rem',
-        '&:hover': {
-            color: '#FFFFFF'
-        }
+    buttons: {
+        display: 'flex',
+        marginLeft: '7rem',
     },
     login: {
         '&:hover': {
             color: '#FFFFFF'
         }
-    }
-})
+    },
+});
 
 function MainNavMUI() {
     const [value, setValue] = useState(0);
@@ -71,10 +69,6 @@ function MainNavMUI() {
 
     const handleLogo = () => {
         setValue(0);
-    }
-
-    const handleCart = () => {
-        setValue(3);
     }
 
     const classes = useStyles();
@@ -112,11 +106,12 @@ function MainNavMUI() {
                         </Tabs>
                     </Grid>
                     <Grid item sx={3} >
-                        <Button onClick={ handleCart } className={ classes.cart } startIcon={<ShoppingCartIcon />}>
-                        </Button>
-                        <Button className={ classes.login }>
-                            <Typography fontSize="12px">Login</Typography>
-                        </Button>
+                        <Box className={ classes.buttons }>
+                            <DrawerMUI />
+                            <Button className={ classes.login } >
+                                <Typography fontSize="12px">Login</Typography>
+                            </Button>
+                        </Box>
                     </Grid>
                 </Grid>
             </Box>
