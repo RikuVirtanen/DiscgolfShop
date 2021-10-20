@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     }
 });
 
-function ShoppingCart() {
+function Empty() {
 
     const classes = useStyles();
 
@@ -34,9 +34,7 @@ function ShoppingCart() {
             <Grid item xs >
             </Grid>
         </Grid> 
-        
-        
     );
 }
 
-export default ShoppingCart;
+export default Empty;

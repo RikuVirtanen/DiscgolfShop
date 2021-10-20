@@ -36,45 +36,47 @@ const useStyle = makeStyles({
     },
     imageBtn: {
         minHeight: '100px',
-        borderRadius: 100,
+        borderRadius: '100%',
     },
     
 });
 
 function DiscCard(props) {
 
+    const { onAdd, disc } = props;
+
     const classes = useStyle();
 
     return (
         <Card button onClick={''} className={ classes.cardMain }>
             <CardContent className={ classes.content }>
-                <Typography fontSize='12px' color='primary'>{props.disc.company}</Typography>  
-                <Typography fontSize='18px' fontWeight='bold' color='primary'>{props.disc.name}</Typography>  
+                <Typography fontSize='12px' color='primary'>{disc.company}</Typography>  
+                <Typography fontSize='18px' fontWeight='bold' color='primary'>{disc.name}</Typography>  
             </CardContent>
             <CardContent className={ classes.box }>
                 <Button className={ classes.imageBtn }>
-                    <img src={props.disc.image} alt="disc" width='100px' />
+                    <img src={disc.image} alt="disc" width='100px' />
                 </Button>
             </CardContent>
             <CardContent>
                 <Box className={ classes.boxAtr }>
                     <Grid container justifyContent='center' spacing={3}>  
                         <Grid item xs={2}>
-                            <Typography color='primary' className={ classes.attributes } >{props.disc.speed}</Typography>
+                            <Typography color='primary' className={ classes.attributes } >{disc.speed}</Typography>
                         </Grid>
                         <Grid item xs={2}>
-                            <Typography color='primary' className={ classes.attributes } >{props.disc.glide}</Typography>
+                            <Typography color='primary' className={ classes.attributes } >{disc.glide}</Typography>
                         </Grid>
                         <Grid item xs={2}>
-                            <Typography color='primary' className={ classes.attributes } >{props.disc.turn}</Typography>
+                            <Typography color='primary' className={ classes.attributes } >{disc.turn}</Typography>
                         </Grid>
                         <Grid item xs={2}>            
-                            <Typography color='primary' className={ classes.attributes } >{props.disc.fade}</Typography>
+                            <Typography color='primary' className={ classes.attributes } >{disc.fade}</Typography>
                         </Grid>
                     </Grid>
                 </Box>
                 <Box className={ classes.boxBtn }>
-                    <IconButton className={ classes.button }><AddShoppingCartIcon /></IconButton>
+                    <IconButton onClick={ () => onAdd(disc) } className={ classes.button }><AddShoppingCartIcon /></IconButton>
                 </Box>
             </CardContent>
         </Card>

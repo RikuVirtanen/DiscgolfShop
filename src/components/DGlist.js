@@ -5,6 +5,8 @@ import Discs from '../discs.json';
 
 function DGlist(props) {
 
+    const { onAdd, type } = props;
+
     const [discs, setDiscs] = useState(Discs);
 
     // Function to add disc in later use
@@ -20,13 +22,13 @@ function DGlist(props) {
             id: discs.length + 1}]);
     }*/
 
-    if (props.type === 'all') {
+    if (type === 'all') {
         return (
             <Box>
                 <Grid container spacing={3} >
                     {discs.map( (disc) => (
                         <Grid item key={disc.id} xs={4}>
-                            <DiscCard disc={disc} />
+                            <DiscCard onAdd={ onAdd } disc={disc} />
                         </Grid> ))}
                 </Grid>
             </Box>
@@ -37,10 +39,10 @@ function DGlist(props) {
         <Box>
             <Grid container spacing={3} >
                 {discs.map( (disc) => (
-                    disc.type.toLowerCase() === props.type 
+                    disc.type.toLowerCase() === type 
                     ? 
                     (<Grid item key={disc.id} xs={4}>
-                        <DiscCard disc={disc} />
+                        <DiscCard onAdd={ onAdd } disc={disc} />
                     </Grid>) 
                     : null
                     ))}

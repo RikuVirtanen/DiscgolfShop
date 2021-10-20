@@ -8,7 +8,7 @@
         "glide": 6, 
         "turn": -3, 
         "fade": 2, 
-        "image": "url"
+        "image": "https://varuste.net/tiedostot/1/kuva/tuote/600/12706439.jpg"
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
         "glide": 5, 
         "turn": -1, 
         "fade": 3,
-        "image": "data:image/jpeg;base64,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" 
+        "image": "https://img.powergrip.fi/products/stdestrw2x/stdestrw2x.jpg?Pbx7twUJwyDEeB9N" 
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
         "glide": 6, 
         "turn": -2, 
         "fade": 2,
-        "image": "url" 
+        "image": "https://frisbeemarket.com/wp-content/uploads/2019/03/corvette_star-stockrun.png" 
     },
     {
         "id": 4,
@@ -41,7 +41,7 @@
         "glide": 4, 
         "turn": 0, 
         "fade": 2,
-        "image": "url" 
+        "image": "https://www.innovastore.fi/tuotekuvat/600x600/Star_Teebird3.png" 
     },
     {
         "id": 5,
@@ -52,7 +52,7 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1,
-        "image": "url" 
+        "image": "https://media.hintaseuranta.fi/prod/i26319141w2000h2000.jpg" 
     },
     {
         "id": 6,
@@ -63,7 +63,7 @@
         "glide": 4, 
         "turn": 0, 
         "fade": 2,
-        "image": "url" 
+        "image": "https://cdn11.bigcommerce.com/s-yt68tfv9/images/stencil/2000x2000/products/300/33614/959-1a__15243.1631644883.jpg?c=2" 
     },
     {
         "id": 7,
@@ -74,7 +74,7 @@
         "glide": 5, 
         "turn": -1, 
         "fade": 1,
-        "image": "url" 
+        "image": "https://www.hockeylahti.fi/wp-content/uploads/2021/03/GEO-ORIGIN.jpg" 
     },
     {
         "id": 8,
@@ -85,7 +85,7 @@
         "glide": 5, 
         "turn": 0, 
         "fade": 3,
-        "image": "url" 
+        "image": "https://img.powergrip.fi/products/evnemeth/evnemeth.jpg?vjyIddmwpbmHt21z" 
     },
     {
         "id": 9,
@@ -96,7 +96,7 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 0,
-        "image": "url" 
+        "image": "https://frisbeemarket.com/wp-content/uploads/2021/10/innova_nova_600.png" 
     },
     {
         "id": 10,
@@ -107,18 +107,18 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 2, 
-        "image": "url"
+        "image": "https://img.powergrip.fi/products/aprmaes/aprmaes.jpg?drH339d26mspiNfi"
     },
     {
         "id": 11,
-        "name": "C-Line", 
+        "name": "MD2", 
         "company": "Discmania", 
         "type": "Midrange",
         "speed": 5, 
         "glide": 5, 
         "turn": 0, 
         "fade": 1, 
-        "image": "url"
+        "image": "https://varuste.net/tiedostot/1/kuva/tuote/600/12762340.jpg"
     },
     {
         "id": 12,
@@ -129,7 +129,7 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1, 
-        "image": "url"
+        "image": "https://img.powergrip.fi/products/evfexlink/evfexlink.jpg?1QK0nlDpwF3tD5IQ"
     },
     {
         "id": 13,
@@ -140,7 +140,7 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1, 
-        "image": "url"
+        "image": "https://d3d4to3qraukqq.cloudfront.net/pub/Lajittelemattomat+tuotekuvat/DISCMANIA_DISC_ACTIVE_PREMIUM_SENSEI_-_PUTTER_56540973-2.jpg?c=system_1024x"
     },
     {
         "id": 14,
@@ -151,7 +151,7 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1, 
-        "image": "url"
+        "image": "https://cdn.shopify.com/s/files/1/0005/7779/8204/products/DM_Evolution_Logic_Grey_WBG_2048x2048.jpg?v=1623178621"
     },
     {
         "id": 15,
@@ -162,7 +162,7 @@
         "glide": 5, 
         "turn": -1, 
         "fade": 3, 
-        "image": "url"
+        "image": "https://img.karkkainen.com/images/c_pad,f_auto,h_720,q_auto,w_650/v1/tuotekuvat/7330056037181/latitude-64-ballista-retro-draiveri.jpg"
     },
     {
         "id": 16,
@@ -173,7 +173,7 @@
         "glide": 6, 
         "turn": -2, 
         "fade": 3, 
-        "image": "url"
+        "image": "https://www.latitude64.se/wp-content/uploads/2019/04/Opto-Bolt-Turqois-1030x1030.jpg"
     },
     {
         "id": 17,
@@ -184,7 +184,7 @@
         "glide": 5, 
         "turn": -0.5, 
         "fade": 3, 
-        "image": "url"
+        "image": "https://www.frisbeeshop.com/media/catalog/product/cache/2/image/1000x/040ec09b1e35df139433887a97daa66f/l/a/latitude-64-opto-halo.jpg"
     }
 
 ]

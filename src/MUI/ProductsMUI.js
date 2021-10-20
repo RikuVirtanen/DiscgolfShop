@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 import ProductNavMUI from './ProductNavMUI';
 import { makeStyles } from '@mui/styles';
@@ -9,7 +9,9 @@ const useStyles = makeStyles({
     },
 });
 
-function Products() {
+function Products(props) {
+
+    const { onAdd } = props;
 
     const classes = useStyles();
 
@@ -18,7 +20,7 @@ function Products() {
             <Grid item xs >
             </Grid>
             <Grid item xs={8} >
-                <ProductNavMUI />
+                <ProductNavMUI onAdd={ onAdd }/>
             </Grid>
             <Grid item xs >
             </Grid>

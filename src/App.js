@@ -18,7 +18,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: ['Poppins', 'sans-serif'],
-    color: 'primary'
+    color: 'secondary'
   },
   overrides: {},
 

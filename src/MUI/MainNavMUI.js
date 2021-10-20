@@ -3,9 +3,8 @@ import { Box, Tab, Tabs, Grid, Button, Typography } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import Products from './ProductsMUI'
 import MainPage from '../components/MainPage'
-import ShoppingCart from "../components/Cart";
 import Info from "../components/Info";
-import DrawerMUI from "./DrawerMUI";
+import ShoppingCart from "./ShoppingCartMUI";
 
 const useStyles = makeStyles({
     mainContainer: {
@@ -52,6 +51,34 @@ const useStyles = makeStyles({
 
 function MainNavMUI() {
     const [value, setValue] = useState(0);
+
+    const [cartItems, setCartItems] = useState([]);
+
+    const onAdd = (product) => {
+        const exists = cartItems.find((x) => x.id === product.id);
+        if (exists) {
+            setCartItems(
+                cartItems.map((x) => 
+                x.id === product.id ? {...exists, qty: exists.qty + 1 } : x
+                )
+            );
+        } else {
+            setCartItems([...cartItems, {...product, qty: 1}]);
+        }
+    };
+
+    const onRemove = (product) => {
+        const exists = cartItems.find((x) => x.id === product.id);
+        if(exists.qty === 1) {
+            setCartItems(cartItems.filter((x) => x.id !== product.id));
+        } else {
+            setCartItems(
+                cartItems.map((x) => 
+                x.id === product.id ? {...exists, qty: exists.qty - 1 } : x
+                )
+            );
+        }
+    };
 
     /*const [show, setShow] = useState(true);
 
@@ -102,12 +129,11 @@ function MainNavMUI() {
                             <Tab label='Etusivu'/>
                             <Tab label='Tuotteet'/>
                             <Tab label='Tietoa'/>
-                            <Tab label='Ostoskori'/>
                         </Tabs>
                     </Grid>
                     <Grid item sx={3} >
                         <Box className={ classes.buttons }>
-                            <DrawerMUI />
+                            <ShoppingCart onAdd={ onAdd } onRemove={ onRemove } cartItems = {cartItems} /> 
                             <Button className={ classes.login } >
                                 <Typography fontSize="12px">Login</Typography>
                             </Button>
@@ -117,9 +143,8 @@ function MainNavMUI() {
             </Box>
             <Box className={ classes.container } >
                 { value === 0 && <MainPage /> }
-                { value === 1 && <Products /> }
-                { value === 3 && <Info /> }
-                { value === 2 && <ShoppingCart /> }
+                { value === 1 && <Products onAdd={ onAdd } /> }
+                { value === 2 && <Info /> }
             </Box>
         </Box>
     );
