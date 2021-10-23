@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import { Box, Tab, Tabs, Paper, Grid } from "@mui/material";
+import { Box, Tab, Tabs, Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import DGlist from '../components/DGlist';
 
 const useStyles = makeStyles({
-    paper: {
-        height: '100%',
-    },
     nav: {
         position: 'fixed',
         width: '25vh',
-        left: 260,
+        marginTop: '2.5vh',
+        left: '18vw',
         backgroundColor: '#FFFFFF',
     },
     main: {
-        marginTop: 0
+        marginTop: 0,
+        minHeight: '70vh'
     }
 })
 
@@ -35,22 +34,20 @@ function ProductNavMUI(props) {
         
         <Grid container spacing={1}>
             <Grid item xs={3} >
-                <Paper className={ classes.paper }>
-                    <Box className={ classes.nav }> 
-                        <Tabs 
-                        orientation='vertical'
-                        value={ value } 
-                        onChange={ handleChange } 
-                        textColor={ 'primary' }
-                        indicatorColor={ 'primary' } >
-                            <Tab label='Kaikki' />
-                            <Tab label='Draiverit' />
-                            <Tab label='Väylädraiverit' />
-                            <Tab label='Midarit' />
-                            <Tab label='Putterit' />
-                        </Tabs>
-                    </Box>
-                </Paper>
+                <Box className={ classes.nav }> 
+                    <Tabs 
+                    orientation='vertical'
+                    value={ value } 
+                    onChange={ handleChange } 
+                    textColor={ 'primary' }
+                    indicatorColor={ 'primary' } >
+                        <Tab label='Kaikki' />
+                        <Tab label='Draiverit' />
+                        <Tab label='Väylädraiverit' />
+                        <Tab label='Midarit' />
+                        <Tab label='Putterit' />
+                    </Tabs>
+                </Box>
             </Grid>
             <Grid item xs className={ classes.main }>
             <Box>

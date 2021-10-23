@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     },
     container: {
         flexGrow: 1,
-        marginTop: '7rem',
+        marginTop: '16vh',
         marginBottom: '1rem',
     },
     img: {

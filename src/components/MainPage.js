@@ -17,7 +17,9 @@ const useStyles = makeStyles({
         marginTop: 50
     },
     paper: {
-        minHeight: '150vh',
+        marginTop: '2vw',
+        padding: '2vw',
+        minHeight: '70vh',
     }
 })
 
@@ -30,10 +32,10 @@ function MainPage() {
             <Grid item xs >
             </Grid>
             <Grid item xs={8} >
+                <Box className={ classes.carouselContainer } >
+                    <CarouselMUI />
+                </Box>
                 <Paper className={ classes.paper } >
-                    <Box className={ classes.carouselContainer } >
-                        <CarouselMUI />
-                    </Box>
                     <Box className={ classes.container } >
                         <Typography color='text.secondary' variant='h5'>Tervetuloa</Typography>
                         <Typography color='text.secondary'>Suomen suurimpaan frisbeegolfkauppaan</Typography>

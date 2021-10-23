@@ -7,7 +7,7 @@ const useStyles = makeStyles({
         justifyContent: 'center',
     },
     paper: {
-        minHeight: '150vh',
+        minHeight: '100vh',
     }
 });
 

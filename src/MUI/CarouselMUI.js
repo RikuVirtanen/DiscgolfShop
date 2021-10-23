@@ -34,7 +34,7 @@ function CarouselMUI() {
             width='100vw'
             height='60vh'
             captionStyle={captionStyle}
-            radius='10px'
+            radius='0px'
             slideNumber={false}
             slideNumberStyle={null}
             captionPosition='bottom'
