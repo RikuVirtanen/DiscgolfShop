@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Paper } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({

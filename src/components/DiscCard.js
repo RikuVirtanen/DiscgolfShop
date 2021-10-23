@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, Grid, Button, CardMedia, Box, IconButton } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Button, Box, IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 //import { Link as RouterLink } from 'react-router-dom';
@@ -8,7 +8,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const useStyle = makeStyles({
     cardMain: {
         width: '25vh',
-        height: '30vh',
+        height: '32vh',
         borderRadius: 0,
         margin: '15px',
     },
@@ -76,7 +76,7 @@ function DiscCard(props) {
                     </Grid>
                 </Box>
                 <Box className={ classes.boxBtn }>
-                    <IconButton onClick={ () => onAdd(disc) } className={ classes.button }><AddShoppingCartIcon /></IconButton>
+                    <IconButton onClick={ (e) => onAdd(disc) } className={ classes.button }><AddShoppingCartIcon /></IconButton>
                 </Box>
             </CardContent>
         </Card>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, Tab, Tabs, Grid, Button, Typography } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import Products from './ProductsMUI'
@@ -10,43 +10,44 @@ const useStyles = makeStyles({
     mainContainer: {
         display: 'flex',
         width: '100%',
-        height: '100%',
     },
     header: {
         display: 'block',
         width: '100%',
         backgroundColor: 'black',
+        alignItems: 'center',
         position: 'fixed',
-        height: '13vh',
-        zIndex: 1
+        height: '100px',
+        zIndex: 1,
     },
     navContainer: {
-        padding: 10,
-        paddingLeft: 200,
-        
-    },
-    nav: {
-        width: '100vh',
-        
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
     },
     container: {
         flexGrow: 1,
         marginTop: '7rem',
-        marginBottom: '1rem'
+        marginBottom: '1rem',
     },
     img: {
-        height: '5rem',
-        width: '5rem'
+        padding: '0.5rem',
+        height: '6rem',
+        width: '6rem'
     },
     buttons: {
         display: 'flex',
-        marginLeft: '7rem',
+        marginLeft: '1vh',
     },
     login: {
+        color: '#d3d3d3',
         '&:hover': {
             color: '#FFFFFF'
         }
     },
+    tab: {
+        width: 200,
+    }
 });
 
 function MainNavMUI() {
@@ -80,16 +81,6 @@ function MainNavMUI() {
         }
     };
 
-    /*const [show, setShow] = useState(true);
-
-    const handleNavbar = () => {
-        if(window.scrollY > 100) {
-            setShow(false);
-        } else {
-            setShow(true);
-        }
-    }*/
-
     const handleChange = (e, val) => {
         setValue(val);
     }
@@ -100,38 +91,28 @@ function MainNavMUI() {
 
     const classes = useStyles();
 
-    /*useEffect( () => {
-        window.addEventListener('scroll', 
-        handleNavbar)
-        return () => {
-            window.removeEventListener('scroll',
-            handleNavbar)
-        }
-    }, [] );*/
-
     return (
         <Box className={ classes.mainContainer } >
             <Box className={ classes.header } >
-                <Grid container spacing={30} className={ classes.navContainer } >
-                    <Grid item sx={3} >
+                <Grid container spacing={10} className={ classes.navContainer } >
+                    <Grid item xs={2} >
                         <Button onClick={ handleLogo }>
                             <img className={ classes.img } src="images/Logo.png" alt="" />
                         </Button>
                     </Grid>
-                    <Grid item sx={3} className={ classes.nav }> 
+                    <Grid item xs={5} className={ classes.nav }> 
                         <Tabs 
                         value={ value } 
                         onChange={ handleChange } 
                         variant='fullWidth' 
                         textColor={ '#FFFFFF' }
-                        indicatorColor={ 'secondary' }
-                        centered >
-                            <Tab label='Etusivu'/>
-                            <Tab label='Tuotteet'/>
-                            <Tab label='Tietoa'/>
+                        indicatorColor={ 'secondary' } >
+                            <Tab className={ classes.tab } label='Etusivu'/>
+                            <Tab className={ classes.tab } label='Tuotteet'/>
+                            <Tab className={ classes.tab } label='Tietoa'/>
                         </Tabs>
                     </Grid>
-                    <Grid item sx={3} >
+                    <Grid item xs={3} className={ classes.buttons } >
                         <Box className={ classes.buttons }>
                             <ShoppingCart onAdd={ onAdd } onRemove={ onRemove } cartItems = {cartItems} /> 
                             <Button className={ classes.login } >

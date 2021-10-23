@@ -5,7 +5,7 @@ import DGlist from '../components/DGlist';
 
 const useStyles = makeStyles({
     paper: {
-        minHeight: '150vh',
+        height: '100%',
     },
     nav: {
         position: 'fixed',
@@ -13,6 +13,9 @@ const useStyles = makeStyles({
         left: 260,
         backgroundColor: '#FFFFFF',
     },
+    main: {
+        marginTop: 0
+    }
 })
 
 function ProductNavMUI(props) {
@@ -29,27 +32,27 @@ function ProductNavMUI(props) {
     const classes = useStyles();
 
     return (
-        <Paper className={ classes.paper }>
-            <Grid container spacing={1}>
-                <Grid item xs={3} >
-            <Box className={ classes.nav }> 
-                <Tabs 
-                orientation='vertical'
-                value={ value } 
-                onChange={ handleChange } 
-                variant='scrollable' 
-                textColor={ 'primary' }
-                indicatorColor={ 'primary' }
-                centered >
-                    <Tab label='Kaikki' />
-                    <Tab label='Draiverit' />
-                    <Tab label='Väylädraiverit' />
-                    <Tab label='Midarit' />
-                    <Tab label='Putterit' />
-                </Tabs>
-            </Box>
+        
+        <Grid container spacing={1}>
+            <Grid item xs={3} >
+                <Paper className={ classes.paper }>
+                    <Box className={ classes.nav }> 
+                        <Tabs 
+                        orientation='vertical'
+                        value={ value } 
+                        onChange={ handleChange } 
+                        textColor={ 'primary' }
+                        indicatorColor={ 'primary' } >
+                            <Tab label='Kaikki' />
+                            <Tab label='Draiverit' />
+                            <Tab label='Väylädraiverit' />
+                            <Tab label='Midarit' />
+                            <Tab label='Putterit' />
+                        </Tabs>
+                    </Box>
+                </Paper>
             </Grid>
-            <Grid item xs >
+            <Grid item xs className={ classes.main }>
             <Box>
                 { value === 0 && <DGlist onAdd={ onAdd } type={'all'} /> }
                 { value === 1 && <DGlist onAdd={ onAdd } type={'driver'} /> }
@@ -58,8 +61,8 @@ function ProductNavMUI(props) {
                 { value === 4 && <DGlist onAdd={ onAdd } type={'putter'} /> } 
             </Box>
             </Grid>
-            </Grid>
-        </Paper>
+        </Grid>
+        
     );
 }
 

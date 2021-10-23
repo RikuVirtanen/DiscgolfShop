@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid } from '@mui/material';
 import ProductNavMUI from './ProductNavMUI';
 import { makeStyles } from '@mui/styles';
