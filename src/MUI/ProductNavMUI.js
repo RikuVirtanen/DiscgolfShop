@@ -10,6 +10,7 @@ const useStyles = makeStyles({
         marginTop: '2.5vh',
         left: '18vw',
         backgroundColor: '#FFFFFF',
+        
     },
     main: {
         marginTop: 0,
@@ -32,8 +33,8 @@ function ProductNavMUI(props) {
 
     return (
         
-        <Grid container spacing={1}>
-            <Grid item xs={3} >
+        <Grid container spacing={-10}>
+            <Grid item xs >
                 <Box className={ classes.nav }> 
                     <Tabs 
                     orientation='vertical'
@@ -49,14 +50,14 @@ function ProductNavMUI(props) {
                     </Tabs>
                 </Box>
             </Grid>
-            <Grid item xs className={ classes.main }>
-            <Box>
-                { value === 0 && <DGlist onAdd={ onAdd } type={'all'} /> }
-                { value === 1 && <DGlist onAdd={ onAdd } type={'driver'} /> }
-                { value === 2 && <DGlist onAdd={ onAdd } type={'fairway driver'} /> }
-                { value === 3 && <DGlist onAdd={ onAdd } type={'midrange'} /> }
-                { value === 4 && <DGlist onAdd={ onAdd } type={'putter'} /> } 
-            </Box>
+            <Grid item xs={12} md={8} sm={10} className={ classes.main }>
+                <Box>
+                    { value === 0 && <DGlist onAdd={ onAdd } type={'all'} /> }
+                    { value === 1 && <DGlist onAdd={ onAdd } type={'driver'} /> }
+                    { value === 2 && <DGlist onAdd={ onAdd } type={'fairway driver'} /> }
+                    { value === 3 && <DGlist onAdd={ onAdd } type={'midrange'} /> }
+                    { value === 4 && <DGlist onAdd={ onAdd } type={'putter'} /> } 
+                </Box>
             </Grid>
         </Grid>
         

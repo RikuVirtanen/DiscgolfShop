@@ -30,6 +30,10 @@ const useStyles = makeStyles({
         marginTop: '16vh',
         marginBottom: '1rem',
     },
+    imgBtn: {
+        width: '6rem',
+        height: '6rem'
+    },
     img: {
         padding: '0.5rem',
         height: '6rem',
@@ -96,7 +100,7 @@ function MainNavMUI() {
             <Box className={ classes.header } >
                 <Grid container spacing={10} className={ classes.navContainer } >
                     <Grid item xs={2} >
-                        <Button onClick={ handleLogo }>
+                        <Button className={ classes.imgBtn } onClick={ handleLogo }>
                             <img className={ classes.img } src="images/Logo.png" alt="" />
                         </Button>
                     </Grid>

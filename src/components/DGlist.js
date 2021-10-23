@@ -14,7 +14,7 @@ function DGlist(props) {
             <Box>
                 <Grid container spacing={3} >
                     {discs.map( (disc) => (
-                        <Grid item key={disc.id} xs={4}>
+                        <Grid item key={disc.id} xs={12} md={4} sm={6}>
                             <DiscCard onAdd={ onAdd } disc={disc} />
                         </Grid> ))}
                 </Grid>
@@ -28,7 +28,7 @@ function DGlist(props) {
                 {discs.map( (disc) => (
                     disc.type.toLowerCase() === type 
                     ? 
-                    (<Grid item key={disc.id} xs={4}>
+                    (<Grid item key={disc.id} xs={12} md={4} sm={6}>
                         <DiscCard onAdd={ onAdd } disc={disc} />
                     </Grid>) 
                     : null

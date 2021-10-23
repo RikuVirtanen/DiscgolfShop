@@ -16,10 +16,10 @@ function Products(props) {
     const classes = useStyles();
 
     return (
-        <Grid container spacing={1} className={ classes.main } >
+        <Grid container spacing={5} className={ classes.main } >
             <Grid item xs >
             </Grid>
-            <Grid item xs={8} >
+            <Grid item xs={2} md={8} sm={2} >
                 <ProductNavMUI onAdd={ onAdd }/>
             </Grid>
             <Grid item xs >

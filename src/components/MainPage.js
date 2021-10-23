@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         padding: '2vw',
         minHeight: '70vh',
     }
-})
+});
 
 function MainPage() {
 
