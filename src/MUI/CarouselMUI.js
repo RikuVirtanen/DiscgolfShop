@@ -1,49 +1,64 @@
 import React from 'react';
-import Carousel from 'react-material-ui-carousel';
-import { makeStyles } from '@mui/styles';
-
-const useStyles = makeStyles({
-    logo: {
-        width: '100%',
-        height: '60vh',
-        alignSelf: 'center',
-    }
-});
+import { Carousel } from 'react-carousel-minimal';
 
 function CarouselMUI() {
     var items = [
         {
-            image: "images/bag.jpg"
+            image: "images/bag.jpg",
+            caption: "Experience the world!"
         },
         {
-            image: "images/redshirt.jpg"
+            image: "images/redshirt.jpg",
+            caption: "Feel the world around you"
         },
         {
-            image: "images/11th.jpg"
+            image: "images/11th.jpg",
+            caption: "New experiences and world of fun"
         },
         {
-            image: "images/throw.jpg"
+            image: "images/throw.jpg",
+            caption: "Join the club!"
         },
     ]
 
+    const captionStyle = {
+        fontSize: '2em',
+        fontWeight: 'bold',
+      }
+
     return (
-        <Carousel>
-            {
-                items.map( (item, i) => <Item key={i} item={item} /> )
-            }
-        </Carousel>
+        <div>
+            <Carousel
+            data={items} 
+            time={2000}
+            width='100vw'
+            height='60vh'
+            captionStyle={captionStyle}
+            radius='10px'
+            slideNumber={false}
+            slideNumberStyle={null}
+            captionPosition='bottom'
+            automatic={true}
+            dots={true}
+            pauseIconColor='white'
+            pauseIconSize='40px'
+            slideBackgroundColor='darkgrey'
+            slideImageFit='cover'
+            thumbnails={true}
+            thumbnailsWidth='10vw'
+            sx={{
+                textAlign: 'center',
+                maxWidth: '100vw',
+                maxHeight: '60vh',
+                margin: '40px auto'
+            }}
+            />
+        </div>
+        
+
     )
 }
 
-function Item(props) {
 
-    const classes = useStyles();
-
-    return (
-
-        <img src={props.item.image} alt="" className={ classes.logo }/>
-
-    )
-}
 
 export default CarouselMUI;

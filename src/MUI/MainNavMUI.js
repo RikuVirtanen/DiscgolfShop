@@ -105,7 +105,7 @@ function MainNavMUI() {
                         value={ value } 
                         onChange={ handleChange } 
                         variant='fullWidth' 
-                        textColor={ '#FFFFFF' }
+                        textColor={ 'inherit' }
                         indicatorColor={ 'secondary' } >
                             <Tab className={ classes.tab } label='Etusivu'/>
                             <Tab className={ classes.tab } label='Tuotteet'/>

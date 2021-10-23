@@ -17,8 +17,12 @@ const useStyles = makeStyles({
         textAlign: 'center',
     },
     title: {
-        marginTop: '20px',
+        marginTop: '3vh',
         color: '#000000',
+    },
+    item: {
+        display: 'block',
+        textAlign: 'center',
     },
     company: {
         color: 'darkgrey',
@@ -28,22 +32,37 @@ const useStyles = makeStyles({
         color: '#000000'
     },
     typoRight: {
-        marginLeft: '100px',
+        marginLeft: '0.5vw',
         color: '#000000',
     },
     empty: {
-        marginTop: '20px',
-        color: '#d3d3d3'
+        textAlign: 'center',
+        marginTop: '20vh',
+        width: '20vw',
+        color: '#d3d3d3',
     },
     list: {
-        width: '20rem'
+        alignContent: 'center',
+        width: '20vw',
     },
     close: {
+        color: '#000000',
         width: '3rem',
         height: '3rem',
         top: 20,
         alignSelf: 'center',
-    }
+        '&:hover': {
+            color: '#FFFFFF',
+            border: '1px solid black',
+            background: '#d3d3d3'
+        }
+    },
+    bottom: {
+        display: 'flex',
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
 });
 
 function ShoppingCart(props) {
@@ -68,42 +87,42 @@ function ShoppingCart(props) {
             <Drawer className={ classes.anchor } anchor='right' open={ open } >
                 <IconButton className={ classes.close } onClick={ handleClose }><CloseIcon /></IconButton>
                 <Typography className={ classes.title } variant='h5'>Ostoskori</Typography>
+
                 {props.cartItems.length === 0 && 
                 <List className={ classes.list }>
                     <Typography variant='h6' className={ classes.empty }>Ostoskorisi on tyhjä</Typography>
                 </List>}
-                    {cartItems.map((item) => (
-                        <List key={item.id} className={ classes.list }>
-                            <hr />
-                            <ListItem>
-                                <Typography className={ classes.company } >
-                                    {item.company}
-                                </Typography>
-                            </ListItem>
-                            <ListItem>
-                                <Typography className={ classes.name } >
-                                    {item.name}
-                                </Typography>
-                            </ListItem>
-                            <ListItem>
-                                <Button color='primary' onClick={ () => onAdd(item) }>
-                                    <AddIcon />
-                                </Button>
-                                <Button color='primary' onClick={ () => onRemove(item) }>
-                                    <RemoveIcon />
-                                </Button>
-                                <Typography className={ classes.typoRight } >{item.qty} kpl</Typography>
-                            </ListItem>
-                            <ListItem>
-                                
-                            </ListItem>
-                            {/*<ListItem>
-                                {item.qty} x ${item.price.toFixed(2)}
-                            </ListItem>*/}
-                            <hr />
-                            {/*<CashierMUI />*/}
-                        </List>
-                    ))}
+
+                {cartItems.map((item) => (
+                <List key={item.id} className={ classes.list }>
+                    <hr />
+                    <ListItem className={ classes.item }>
+                        <Typography className={ classes.company } >
+                            {item.company}
+                        </Typography>
+                    </ListItem>
+                    <ListItem className={ classes.item }>
+                        <Typography className={ classes.name } >
+                            {item.name}
+                        </Typography>
+                    </ListItem>
+                    <ListItem className={ classes.bottom } >
+                        <Button color='primary' onClick={ () => onAdd(item) }>
+                            <AddIcon className={ classes.bottomBtn } />
+                        </Button>
+                        <Button color='primary' onClick={ () => onRemove(item) }>
+                            <RemoveIcon className={ classes.bottomBtn } />
+                        </Button>
+                        <Typography className={ classes.typoRight } >{item.qty} kpl</Typography>
+                    </ListItem>
+                    
+                    {/*<ListItem>
+                        {item.qty} x ${item.price.toFixed(2)}
+                    </ListItem>*/}
+                    {/*<CashierMUI />*/}
+                    <hr />
+                </List>
+                ))}
                 
             </Drawer>
         </Box>

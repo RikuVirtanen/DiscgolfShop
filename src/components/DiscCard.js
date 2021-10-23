@@ -8,9 +8,9 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const useStyle = makeStyles({
     cardMain: {
         width: '25vh',
-        height: '32vh',
+        height: '29vh',
         borderRadius: 0,
-        margin: '15px',
+        margin: '2.5vh',
     },
     content: {
         textAlign: 'center',
@@ -35,7 +35,6 @@ const useStyle = makeStyles({
         float: 'right',
     },
     imageBtn: {
-        minHeight: '100px',
         borderRadius: '100%',
     },
     
@@ -48,14 +47,14 @@ function DiscCard(props) {
     const classes = useStyle();
 
     return (
-        <Card button onClick={''} className={ classes.cardMain }>
+        <Card className={ classes.cardMain }>
             <CardContent className={ classes.content }>
                 <Typography fontSize='12px' color='primary'>{disc.company}</Typography>  
                 <Typography fontSize='18px' fontWeight='bold' color='primary'>{disc.name}</Typography>  
             </CardContent>
             <CardContent className={ classes.box }>
                 <Button className={ classes.imageBtn }>
-                    <img src={disc.image} alt="disc" width='100px' />
+                    <img src={disc.image} alt="disc" width='80vw' />
                 </Button>
             </CardContent>
             <CardContent>
