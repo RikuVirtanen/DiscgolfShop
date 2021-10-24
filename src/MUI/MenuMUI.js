@@ -3,22 +3,33 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { MenuList } from '@mui/material';
+import { MenuList, Typography } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import HomeIcon from '@mui/icons-material/Home';
-import CreateIcon from '@mui/icons-material/Create';
 import MenuIcon from '@mui/icons-material/Menu';
-import ListIcon from '@mui/icons-material/List';
-import CloudQueueIcon from '@mui/icons-material/CloudQueue';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+  typo: {
+    color: '#000000',
+    '&:hover': {
+      color: '#FFFFFF'
+    }
+  }
+})
 
 function MenuMUI () {
+
+  const classes = useStyles();
 
     const [anchorNavi, setOpenNavi] = useState(null);
    
     const handleMenu = (e) => {
      setOpenNavi(e.currentTarget);
     };
+
+    const handleClick = (e, val) => {
+      handleClose();
+    }
    
     const handleClose = () => {
      setOpenNavi(null);
@@ -32,23 +43,18 @@ function MenuMUI () {
           <MenuList>
             <Menu
               anchorEl={ anchorNavi }
-              open={ Boolean(anchorNavi) }
-              onClose={ handleClose }>
-                <MenuItem onClick= { handleClose }>
-                  <ListItemIcon><HomeIcon /></ListItemIcon>
-                  <ListItemText secondary='Menu Etusivu' />
+              open={ Boolean(anchorNavi) }>
+                <MenuItem onClick={handleClick}>
+                  <ListItemText><Typography className={ classes.typo }>Etusivu</Typography></ListItemText>
                 </MenuItem>
-                <MenuItem onClick= { handleClose }>
-                  <ListItemIcon><CreateIcon /></ListItemIcon>
-                  <ListItemText secondary='Lisää' />
+                <MenuItem onClick={handleClick}>
+                  <ListItemText><Typography className={ classes.typo }>Tuotteet</Typography></ListItemText>
                 </MenuItem>
-                <MenuItem onClick= { handleClose }>
-                  <ListItemIcon><ListIcon /></ListItemIcon>
-                  <ListItemText secondary='Listaa' />
+                <MenuItem onClick={handleClick}>
+                  <ListItemText><Typography className={ classes.typo }>Tietoa</Typography></ListItemText>
                 </MenuItem>
-                <MenuItem onClick= { handleClose }>
-                  <ListItemIcon><CloudQueueIcon /></ListItemIcon>
-                  <ListItemText secondary='Sää' />
+                <MenuItem onClick={handleClick}>
+                  <ListItemText><Typography className={ classes.typo }>Palaute</Typography></ListItemText>
                 </MenuItem>
               </Menu>
             </MenuList>

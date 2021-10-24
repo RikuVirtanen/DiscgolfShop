@@ -1,86 +1,135 @@
 import React, { useState } from 'react';
-import { ThemeContext } from '../Training/ThemeContext';
+import { Select, InputLabel, MenuItem, TextField, FormControl, Button, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
-function DGForm({addDisc}) {
+const useStyles = makeStyles({
+    main: {
+        justifyContent: 'center'
+    },
+    paper: {
+        textAlign: 'center',
+        minHeight: '70vh',
+        paddingTop: '5vh'
+    },
+    container: {
+        display: 'flex-box',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20vw',
+        paddingTop: '5vw'
+    },
+    select: {
+        justifyContent: 'center',
+    },
+    btnContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '30vh',
+    },
+    typo: {
+        color: '#000000'
+    },
+    input: {
+        color: '#000000'
+    }
+});
 
-    //const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const [name, setName] = useState('');
-    const [company, setCompany] = useState('');
-    const [speed, setSpeed] = useState('');
-    const [glide, setGlide] = useState('');
-    const [turn, setTurn] = useState('');
-    const [fade, setFade] = useState('');
+function DGForm() {
+
+    const classes = useStyles();
+
+    const [disc, setDisc] = useState({
+        name: '',
+        company: ''
+    });
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target
+        setDisc({
+            ...disc,
+            [name]: value
+        });
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addDisc(name, company, speed, glide, turn, fade);
-        setName('');
-        setCompany('');
-        setSpeed('');
-        setGlide('');
-        setTurn('');
-        setFade('');
+        handleReset(e);
+        // methodi, joka lisää kiekon tietokantaan
     }
 
-    return  (
-        <ThemeContext.Consumer>{(context) => {
-            const { isLightTheme, light, dark } = context;
-            const theme = isLightTheme ? light : dark;
+    const handleReset = (e) => {
+        e.preventDefault();
+        setDisc({
+            name: '',
+            company: ''
+        });
+    }
 
-            return (
-                <div className="form-div" style={{ background: theme.ui, color: theme.syntax}}>
-                    <h1>Add new disc</h1>
-                    <form className="dgform" onSubmit={handleSubmit}>
-                        <label htmlFor="name">Name: </label>
-                        <input type="text" value={name} required onChange={(e) => setName(e.target.value)}/>
-                        <br/>
-                        <label htmlFor="company">Company: </label>
-                        <select 
-                        className="custom-select" required
-                        onChange={(e) => {
-                            const selectedCompany = e.target.value;
-                            setCompany(selectedCompany);
-                        }}
-                        >
-                            <option value=""></option>
-                            <option value="Innova">Innova</option>
-                            <option value="Discraft">Discraft</option>
-                            <option value="Dynamic Discs">Dynamic Discs</option>
-                            <option value="Discmania">Discmania</option>
-                            <option value="Latitude 64">Latitude 64</option>
-                            <option value="MVP">MVP</option>
-                            <option value="Prodigy">Prodigy</option>
-                            <option value="Westside">Westside</option>
-                            <option value="Axiom">Axiom</option>
-                            <option value="Kastaplast">Kastaplast</option>
-                            <option value="Gateway">Gateway</option>
-                            <option value="Infinite Discs">Infinite Discs</option>
-                            <option value="Streamline">Streamline</option>
-                            <option value="DGA">DGA</option>
-                            <option value="Viking Discs">Viking Discs</option>
-                        </select>
-                        <br/>
-                        <h4>Attributes: </h4>
-                        <label htmlFor="speed">Speed: </label>
-                        <input type="number" min="0" max="16" value={speed} onChange={(e) => setSpeed(e.target.value)}/>
-                        <br/>
-                        <label htmlFor="glide">Glide: </label>
-                        <input type="number" min="0" max="6" value={glide} onChange={(e) => setGlide(e.target.value)}/>
-                        <br/>
-                        <label htmlFor="turn">Turn: </label>
-                        <input type="number" min="-6" max="3" value={turn} onChange={(e) => setTurn(e.target.value)}/>
-                        <br/>
-                        <label htmlFor="fade">Fade: </label>
-                        <input type="number" min="0" max="6" value={fade} onChange={(e) => setFade(e.target.value)}/>
-                        <br/>
-                        <br/>
-                        <input type="submit"/><input type="reset"/>
-                    </form>
-                </div>
-            )
-        }}</ThemeContext.Consumer>
-    );
+   
+
+    return (
+        <form onSubmit={handleSubmit} className={ classes.container }>
+            <TextField 
+                required
+                label='name' 
+                name='name' 
+                value={ disc.name } 
+                autoComplete='off'
+                InputProps={{
+                    className: classes.input
+                }} 
+                onChange={ (e) => handleChange(e) } />
+            <br />
+            <br />
+            <FormControl required fullWidth sx={{left: 85}}>
+                <InputLabel id='label-company'>Valmistaja</InputLabel>
+                <Select 
+                    labelId='label-company'
+                    id="select-company"
+                    value={ disc.company }
+                    label="Valmistaja"
+                    name="company"
+                    required
+                    onChange={handleChange}
+                    sx={{color: '#000000', width: '30vh'}}   
+                >
+                    <MenuItem value=""><em>None</em></MenuItem>
+                    <MenuItem value="Innova">Innova</MenuItem>
+                    <MenuItem value="Discraft">Discraft</MenuItem>
+                    <MenuItem value="Dynamic Discs">Dynamic Discs</MenuItem>
+                    <MenuItem value="Discmania">Discmania</MenuItem>
+                    <MenuItem value="Latitude 64">Latitude 64</MenuItem>
+                    <MenuItem value="MVP">MVP</MenuItem>
+                    <MenuItem value="Prodigy">Prodigy</MenuItem>
+                    <MenuItem value="Westside">Westside</MenuItem>
+                    <MenuItem value="Axiom">Axiom</MenuItem>
+                    <MenuItem value="Kastaplast">Kastaplast</MenuItem>
+                    <MenuItem value="Gateway">Gateway</MenuItem>
+                    <MenuItem value="Infinite Discs">Infinite Discs</MenuItem>
+                    <MenuItem value="Streamline">Streamline</MenuItem>
+                    <MenuItem value="DGA">DGA</MenuItem>
+                    <MenuItem value="Viking Discs">Viking Discs</MenuItem>
+                </Select>
+            </FormControl>
+            <br />
+            <br />
+            <Button type='submit' variant='contained'>Lisää</Button>
+            <Button variant='outlined' onClick={(e) => handleReset(e)} >Reset</Button>
+            <br />
+            <br />
+            <br />
+            <br />
+            {disc.name.length > 0 && disc.company.length > 0
+                ? (<Typography>
+                Pyrimme lisäämään {disc.name} kiekon valmistajalta {disc.company} valikoimiimme mahdollisimman pian!
+                </Typography>)
+                : null}
+        </form>
+    )
+
 }
 
 export default DGForm;

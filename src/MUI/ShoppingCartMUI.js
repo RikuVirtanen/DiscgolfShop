@@ -6,7 +6,7 @@ import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(e => ({
     icon: {
         color: 'inherit',
         '&:hover': {
@@ -38,12 +38,31 @@ const useStyles = makeStyles({
     empty: {
         textAlign: 'center',
         marginTop: '20vh',
-        width: '20vw',
         color: '#d3d3d3',
+        [e.breakpoints.up('xs')]: {
+            width: '100vw',
+        },
+        [e.breakpoints.up('sm')]: {
+            width: '50vw',
+        },
+        [e.breakpoints.up('md')]: {
+            width: '25vw',
+        },
+        
     },
     list: {
         alignContent: 'center',
-        width: '20vw',
+        [e.breakpoints.up('xs')]: {
+            width: '100vw',
+        },
+        [e.breakpoints.up('sm')]: {
+            width: '50vw',
+        },
+        [e.breakpoints.up('md')]: {
+            width: '25vw',
+        },
+        
+
     },
     close: {
         color: '#000000',
@@ -63,7 +82,7 @@ const useStyles = makeStyles({
         alignContent: 'center',
         justifyContent: 'center',
     },
-});
+}));
 
 function ShoppingCart(props) {
 
@@ -88,7 +107,7 @@ function ShoppingCart(props) {
                 <IconButton className={ classes.close } onClick={ handleClose }><CloseIcon /></IconButton>
                 <Typography className={ classes.title } variant='h5'>Ostoskori</Typography>
 
-                {props.cartItems.length === 0 && 
+                {cartItems.length === 0 && 
                 <List className={ classes.list }>
                     <Typography variant='h6' className={ classes.empty }>Ostoskorisi on tyhjä</Typography>
                 </List>}

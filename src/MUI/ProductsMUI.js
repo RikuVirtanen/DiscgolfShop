@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 
 function Products(props) {
 
-    const { onAdd } = props;
+    const { onAdd, items } = props;
 
     const classes = useStyles();
 
@@ -20,7 +20,7 @@ function Products(props) {
             <Grid item xs >
             </Grid>
             <Grid item xs={2} md={8} sm={2} >
-                <ProductNavMUI onAdd={ onAdd }/>
+                <ProductNavMUI onAdd={ onAdd } items={ items } />
             </Grid>
             <Grid item xs >
             </Grid>

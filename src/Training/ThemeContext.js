@@ -1,8 +1,8 @@
-import React, {createContext, Component} from 'react';
+import React, {createContext} from 'react';
 
 export const ThemeContext = createContext();
 
-class ThemeContextProvider extends React.Component {
+class ThemeContextProvider {
     state = {
         isLightTheme: true,
         light: { syntax: '#555', ui: '#ddd', bg: '#eee' },

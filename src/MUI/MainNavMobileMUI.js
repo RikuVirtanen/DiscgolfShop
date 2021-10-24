@@ -6,11 +6,13 @@ import MainPage from '../components/MainPage'
 import Info from "../components/Info";
 import ShoppingCart from "./ShoppingCartMUI";
 import FormPage from "../components/FormPage";
+import MenuMUI from "./MenuMUI";
 
 const useStyles = makeStyles({
     mainContainer: {
         display: 'flex',
         width: '100%',
+        minHeight: '78vh'
     },
     header: {
         display: 'block',
@@ -24,7 +26,6 @@ const useStyles = makeStyles({
     navContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        alignContent: 'center',
     },
     container: {
         flexGrow: 1,
@@ -60,7 +61,7 @@ const useStyles = makeStyles({
     }
 });
 
-function MainNavMUI() {
+function MainNavMobileMUI() {
     const [value, setValue] = useState(0);
 
     const [cartItems, setCartItems] = useState([]);
@@ -104,30 +105,20 @@ function MainNavMUI() {
     return (
         <Box className={ classes.mainContainer } >
             <Box className={ classes.header } >
-                <Grid container spacing={10} className={ classes.navContainer } >
-                    <Grid item xs={2} >
-                        <Button className={ classes.imgBtn } onClick={ handleLogo }>
+                <Grid container spacing={1} className={ classes.navContainer } >
+                    <Grid item xs={5} >
+                        <MenuMUI />
+                    </Grid>
+                    <Grid item xs={3} className={ classes.nav }> 
+                    <Button className={ classes.imgBtn } onClick={ handleLogo }>
                             <img className={ classes.img } src="images/Logo.png" alt="" />
                         </Button>
-                    </Grid>
-                    <Grid item xs={5} className={ classes.nav }> 
-                        <Tabs 
-                        value={ value } 
-                        onChange={ handleChange } 
-                        variant='fullWidth' 
-                        textColor={'secondary'}
-                        indicatorColor={ 'secondary' } >
-                            <Tab className={ classes.tab } label='Etusivu'/>
-                            <Tab className={ classes.tab } label='Tuotteet'/>
-                            <Tab className={ classes.tab } label='Tietoa'/>
-                            <Tab className={ classes.tab } label='Palaute'/>
-                        </Tabs>
                     </Grid>
                     <Grid item xs={3} className={ classes.buttons } >
                         <Box className={ classes.buttons }>
                             <ShoppingCart onAdd={ onAdd } onRemove={ onRemove } cartItems = {cartItems} /> 
                             <Button className={ classes.login } >
-                                <Typography fontSize="12px">Login</Typography>
+                                <Typography fontSize="8px">Login</Typography>
                             </Button>
                         </Box>
                     </Grid>
@@ -143,4 +134,4 @@ function MainNavMUI() {
     );
 }
 
-export default MainNavMUI;
+export default MainNavMobileMUI;

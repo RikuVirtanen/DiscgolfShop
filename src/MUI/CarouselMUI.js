@@ -44,7 +44,7 @@ function CarouselMUI() {
             pauseIconSize='40px'
             slideBackgroundColor='darkgrey'
             slideImageFit='cover'
-            thumbnails={true}
+            thumbnails={false}
             thumbnailsWidth='10vw'
             sx={{
                 textAlign: 'center',
