@@ -7,8 +7,12 @@ import { MenuList, Typography } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@mui/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
+  container: {
+    width: '500vh'
+  },
   typo: {
     color: '#000000',
     '&:hover': {
@@ -26,10 +30,6 @@ function MenuMUI () {
     const handleMenu = (e) => {
      setOpenNavi(e.currentTarget);
     };
-
-    const handleClick = (e, val) => {
-      handleClose();
-    }
    
     const handleClose = () => {
      setOpenNavi(null);
@@ -43,17 +43,18 @@ function MenuMUI () {
           <MenuList>
             <Menu
               anchorEl={ anchorNavi }
-              open={ Boolean(anchorNavi) }>
-                <MenuItem onClick={handleClick}>
+              open={ Boolean(anchorNavi) }
+              onClose={ handleClose }>
+                <MenuItem component={ Link } to='/' onClick={ handleClose }>
                   <ListItemText><Typography className={ classes.typo }>Etusivu</Typography></ListItemText>
                 </MenuItem>
-                <MenuItem onClick={handleClick}>
+                <MenuItem component={ Link } to='/tuotteet' onClick={ handleClose }>
                   <ListItemText><Typography className={ classes.typo }>Tuotteet</Typography></ListItemText>
                 </MenuItem>
-                <MenuItem onClick={handleClick}>
+                <MenuItem component={ Link } to='/tietoa' onClick={ handleClose }>
                   <ListItemText><Typography className={ classes.typo }>Tietoa</Typography></ListItemText>
                 </MenuItem>
-                <MenuItem onClick={handleClick}>
+                <MenuItem component={ Link } to='/Palaute' onClick={ handleClose }>
                   <ListItemText><Typography className={ classes.typo }>Palaute</Typography></ListItemText>
                 </MenuItem>
               </Menu>

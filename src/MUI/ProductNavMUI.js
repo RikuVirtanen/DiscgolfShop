@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Box, Tab, Tabs, Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
-import DGlist from '../components/DGlist';
+import DGlist from './DGlist';
 
 const useStyles = makeStyles(theme => ({
     nav: {
         position: 'fixed',
         width: '25vh',
-        marginTop: '2.5vh',
+        
         left: '8vw',
         backgroundColor: '#FFFFFF',
         [theme.breakpoints.up('xs')]: {
@@ -68,13 +68,11 @@ function ProductNavMUI(props) {
         setValue(val);
     }
 
-    
-
     const classes = useStyles();
 
     return (
         
-        <Grid container spacing={-10}>
+        <Grid container spacing={0}>
             <Grid item xs={12} >
                 <Box className={ classes.nav }> 
                     <Tabs 

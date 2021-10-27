@@ -5,8 +5,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const useStyle = makeStyles({
     cardMain: {
-        width: '25vh',
-        height: '29vh',
+        width: '130px',
+        height: '230px',
         borderRadius: 0,
     },
     content: {

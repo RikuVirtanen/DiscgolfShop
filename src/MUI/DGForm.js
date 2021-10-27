@@ -15,11 +15,12 @@ const useStyles = makeStyles({
         display: 'flex-box',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20vw',
+        padding: '5vw',
         paddingTop: '5vw'
     },
     select: {
         justifyContent: 'center',
+        maxWidth: '15vw',
     },
     btnContainer: {
         display: 'flex',
@@ -84,7 +85,7 @@ function DGForm() {
                 onChange={ (e) => handleChange(e) } />
             <br />
             <br />
-            <FormControl required fullWidth sx={{left: 85}}>
+            <FormControl required fullWidth sx={{ maxWidth: 250}}>
                 <InputLabel id='label-company'>Valmistaja</InputLabel>
                 <Select 
                     labelId='label-company'
@@ -94,7 +95,9 @@ function DGForm() {
                     name="company"
                     required
                     onChange={handleChange}
-                    sx={{color: '#000000', width: '30vh'}}   
+                    InputProps={{
+                        className: classes.select
+                    }}   
                 >
                     <MenuItem value=""><em>None</em></MenuItem>
                     <MenuItem value="Innova">Innova</MenuItem>

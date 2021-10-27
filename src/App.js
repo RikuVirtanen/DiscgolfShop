@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainNavMUI from './MUI/MainNavMUI';
 import MainNavMobileMUI from './MUI/MainNavMobileMUI';
-import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import Footer from "./components/Footer";
+import Footer from "./MUI/Footer";
 import { useMediaQuery } from 'react-responsive';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MainPage from './MUI/MainPage';
+import ProductsMUI from './MUI/ProductsMUI';
+import Info from './MUI/Info';
+import FormPage from './MUI/FormPage';
+import CashierMUI from './MUI/CashierMUI';
+import { Box } from '@mui/system';
 
 const theme = createTheme({
   palette: {
@@ -25,20 +31,70 @@ const theme = createTheme({
 
 function App() {
 
-  const mobile = useMediaQuery({query: '(max-width: 600px'});
+  const [cartItems, setCartItems] = useState([]);
+
+  const onAdd = (product) => {
+    const exists = cartItems.find((x) => x.id === product.id);
+    if (exists) {
+        setCartItems(
+            cartItems.map((x) => 
+            x.id === product.id ? {...exists, qty: exists.qty + 1 } : x
+            )
+        );
+    } else {
+        setCartItems([...cartItems, {...product, qty: 1}]);
+    }
+};
+
+const onRemove = (product) => {
+    const exists = cartItems.find((x) => x.id === product.id);
+    if(exists.qty === 1) {
+        setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+        setCartItems(
+            cartItems.map((x) => 
+            x.id === product.id ? {...exists, qty: exists.qty - 1 } : x
+            )
+        );
+    }
+};
+
+  const mobile = useMediaQuery({query: '(max-width: 900px'});
 
   return (
-    <ThemeProvider theme= { theme }>
-      <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}> 
-        <Box sx={{flex: 1}}>
-          <CssBaseline />
-          {mobile
-          ? <MainNavMobileMUI />
-          : <MainNavMUI />}
-        </Box>
-        <Footer /> 
-      </Box>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme= { theme }>
+        <CssBaseline />
+        {mobile
+        ? <Box>
+            <MainNavMobileMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } />
+            <Box sx={{minHeight: '64.5vh', marginTop: '30vw', marginBottom: '2vw'}}>
+              <Switch>
+                <Route exact path='/'><MainPage /></Route>
+                <Route path='/tuotteet'><ProductsMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } /></Route>
+                <Route path='/tietoa'><Info /></Route>
+                <Route path='/palaute'><FormPage /></Route>
+                <Route path='/*'><MainPage /></Route>
+              </Switch>
+            </Box>
+            <Footer />
+          </Box>
+        : <Box>
+            <MainNavMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } />
+            <Box sx={{minHeight: '100vh', marginTop: '10vw', marginBottom: '2vw'}}>
+              <Switch>
+                <Route exact path='/'><MainPage /></Route>
+                <Route path='/tuotteet'><ProductsMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } /></Route>
+                <Route path='/tietoa'><Info /></Route>
+                <Route path='/palaute'><FormPage /></Route>
+                <Route path='/*'><MainPage /></Route>
+              </Switch>
+            </Box>
+            <Footer />
+          </Box>}
+      </ThemeProvider>
+    </BrowserRouter>
+    
   );
 }
 
