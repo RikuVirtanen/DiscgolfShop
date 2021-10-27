@@ -9,7 +9,6 @@ const useStyles = makeStyles({
         '&:active': {
             color: '#FFFFFF',
         },
-        width: 200,
     }
 });
 
@@ -18,7 +17,7 @@ export default function TabsMUI() {
     const classes = useStyles();
 
     return (
-        <Tabs>
+        <Tabs >
             <Tab className={ classes.tab } label='Etusivu' component={ Link } to='/' />
             <Tab className={ classes.tab } label='Tuotteet' component={ Link } to='/tuotteet'/>
             <Tab className={ classes.tab } label='Tietoa' component={ Link } to='/tietoa'/>

@@ -28,13 +28,13 @@ function MainNavMobileMUI(props) {
 
     return (
         <Grid container spacing={0} className={ classes.nav } >
-            <Grid item xs={4} >
+            <Grid item xs={1} >
                 <MenuMUI />
             </Grid>
-            <Grid item xs={4} > 
+            <Grid item xs={6} > 
                 <LogoMUI />
             </Grid>
-            <Grid item xs={3} >
+            <Grid item xs={5} >
                 <NavButtonsMUI
                     onAdd={ onAdd } 
                     onRemove={ onRemove } 

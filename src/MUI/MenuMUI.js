@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   container: {
-    width: '500vh'
+    display: 'flex',
+    alignItems: 'center',
   },
   typo: {
     color: '#000000',
@@ -36,7 +37,7 @@ function MenuMUI () {
     }
    
      return (
-       <Box>
+       <Box className={ classes.container }>
          <IconButton onClick={ handleMenu } color='inherit'>
             <MenuIcon />
           </IconButton>

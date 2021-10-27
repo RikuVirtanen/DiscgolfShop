@@ -61,8 +61,6 @@ const useStyles = makeStyles(e => ({
         [e.breakpoints.up('md')]: {
             width: '25vw',
         },
-        
-
     },
     close: {
         color: '#000000',

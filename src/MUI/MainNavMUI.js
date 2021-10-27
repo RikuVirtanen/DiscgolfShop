@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import TabsMUI from "./TabsMUI";
 import LogoMUI from "./LogoMUI";
@@ -27,14 +27,14 @@ function MainNavMUI(props) {
     const classes = useStyles();
 
     return (
-        <Grid container spacing={10} className={ classes.nav } >
-            <Grid item xs={1} >
+        <Grid container spacing={12} className={ classes.nav } >
+            <Grid item xs={2} >
                 <LogoMUI />
             </Grid>
-            <Grid item xs={8} > 
+            <Grid item xs={7} > 
                 <TabsMUI />
             </Grid>
-            <Grid item xs={2} >
+            <Grid item xs={3} sx={{float: 'left'}} >
                 <NavButtonsMUI 
                     onAdd={ onAdd } 
                     onRemove={ onRemove } 
