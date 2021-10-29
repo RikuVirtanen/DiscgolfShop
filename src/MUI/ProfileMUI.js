@@ -31,7 +31,6 @@ export default function ProfileMUI() {
             <Grid item xs >
             </Grid>
             <Grid item xs={8} >
-                
                 <Paper className={ classes.paper } >
                     <Box className={ classes.container } >
                         
