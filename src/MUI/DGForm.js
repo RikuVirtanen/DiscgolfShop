@@ -41,6 +41,8 @@ function DGForm() {
 
     const classes = useStyles();
 
+    const [requests, setRequests] = useState([]);
+
     const [disc, setDisc] = useState({
         name: '',
         company: ''
@@ -57,7 +59,9 @@ function DGForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setRequests([...requests, `Pyrimme lisäämään ${disc.name} kiekon valmistajalta ${disc.company} valikoimiimme mahdollisimman pian!`]);
         handleReset(e);
+        
         // methodi, joka lisää kiekon tietokantaan
     }
 
@@ -95,26 +99,26 @@ function DGForm() {
                     name="company"
                     required
                     onChange={handleChange}
-                    InputProps={{
+                    sx={{
                         className: classes.select
                     }}   
                 >
-                    <MenuItem value=""><em>None</em></MenuItem>
-                    <MenuItem value="Innova">Innova</MenuItem>
-                    <MenuItem value="Discraft">Discraft</MenuItem>
-                    <MenuItem value="Dynamic Discs">Dynamic Discs</MenuItem>
-                    <MenuItem value="Discmania">Discmania</MenuItem>
-                    <MenuItem value="Latitude 64">Latitude 64</MenuItem>
-                    <MenuItem value="MVP">MVP</MenuItem>
-                    <MenuItem value="Prodigy">Prodigy</MenuItem>
-                    <MenuItem value="Westside">Westside</MenuItem>
-                    <MenuItem value="Axiom">Axiom</MenuItem>
-                    <MenuItem value="Kastaplast">Kastaplast</MenuItem>
-                    <MenuItem value="Gateway">Gateway</MenuItem>
-                    <MenuItem value="Infinite Discs">Infinite Discs</MenuItem>
-                    <MenuItem value="Streamline">Streamline</MenuItem>
-                    <MenuItem value="DGA">DGA</MenuItem>
-                    <MenuItem value="Viking Discs">Viking Discs</MenuItem>
+                    <MenuItem className={ classes.typo } value=""><em>None</em></MenuItem>
+                    <MenuItem className={ classes.typo } value="Innova">Innova</MenuItem>
+                    <MenuItem className={ classes.typo } value="Discraft">Discraft</MenuItem>
+                    <MenuItem className={ classes.typo } value="Dynamic Discs">Dynamic Discs</MenuItem>
+                    <MenuItem className={ classes.typo } value="Discmania">Discmania</MenuItem>
+                    <MenuItem className={ classes.typo } value="Latitude 64">Latitude 64</MenuItem>
+                    <MenuItem className={ classes.typo } value="MVP">MVP</MenuItem>
+                    <MenuItem className={ classes.typo } value="Prodigy">Prodigy</MenuItem>
+                    <MenuItem className={ classes.typo } value="Westside">Westside</MenuItem>
+                    <MenuItem className={ classes.typo } value="Axiom">Axiom</MenuItem>
+                    <MenuItem className={ classes.typo } value="Kastaplast">Kastaplast</MenuItem>
+                    <MenuItem className={ classes.typo } value="Gateway">Gateway</MenuItem>
+                    <MenuItem className={ classes.typo } value="Infinite Discs">Infinite Discs</MenuItem>
+                    <MenuItem className={ classes.typo } value="Streamline">Streamline</MenuItem>
+                    <MenuItem className={ classes.typo } value="DGA">DGA</MenuItem>
+                    <MenuItem className={ classes.typo } value="Viking Discs">Viking Discs</MenuItem>
                 </Select>
             </FormControl>
             <br />
@@ -125,10 +129,10 @@ function DGForm() {
             <br />
             <br />
             <br />
-            {disc.name.length > 0 && disc.company.length > 0
-                ? (<Typography>
-                Pyrimme lisäämään {disc.name} kiekon valmistajalta {disc.company} valikoimiimme mahdollisimman pian!
-                </Typography>)
+            {requests.length > 0
+                ? (requests.map((request, index) => (
+                    <Typography key={index} >{request}</Typography>
+                )))
                 : null}
         </form>
     )

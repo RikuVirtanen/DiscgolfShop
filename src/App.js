@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MainNavMUI from './MUI/MainNavMUI';
 import MainNavMobileMUI from './MUI/MainNavMobileMUI';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Box } from '@mui/material';
 import Footer from "./MUI/Footer";
 import { useMediaQuery } from 'react-responsive';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -10,8 +10,7 @@ import MainPage from './MUI/MainPage';
 import ProductsMUI from './MUI/ProductsMUI';
 import Info from './MUI/Info';
 import FormPage from './MUI/FormPage';
-import CashierMUI from './MUI/CashierMUI';
-import { Box } from '@mui/system';
+import ProfileMUI from './MUI/ProfileMUI';
 
 const theme = createTheme({
   palette: {
@@ -87,6 +86,7 @@ const onRemove = (product) => {
                 <Route path='/tuotteet'><ProductsMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } /></Route>
                 <Route path='/tietoa'><Info /></Route>
                 <Route path='/palaute'><FormPage /></Route>
+                <Route path='/profile'><ProfileMUI /></Route>
                 <Route path='/*'><MainPage /></Route>
               </Switch>
             </Box>
