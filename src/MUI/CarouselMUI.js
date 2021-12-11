@@ -30,7 +30,7 @@ function CarouselMUI() {
         <div>
             <Carousel
             data={items} 
-            time={2000}
+            time={4000}
             width='100vw'
             height='60vh'
             captionStyle={captionStyle}

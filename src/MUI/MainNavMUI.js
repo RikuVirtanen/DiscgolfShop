@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         width: '110vw',
         backgroundColor: 'black',
         position: 'fixed',
-        height: '200px',
+        height: '170px',
         zIndex: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 function MainNavMUI(props) {
 
-    const { onAdd, onRemove, cartItems } = props;
+    const { onAdd, onRemove, cartItems, total } = props;
 
     const classes = useStyles();
 
@@ -36,9 +36,10 @@ function MainNavMUI(props) {
             </Grid>
             <Grid item xs={3} sx={{float: 'left'}} >
                 <NavButtonsMUI 
-                    onAdd={ onAdd } 
-                    onRemove={ onRemove } 
+                    onAdd = { onAdd } 
+                    onRemove = { onRemove } 
                     cartItems = {cartItems} 
+                    total = { total }
                 />
             </Grid>
         </Grid>

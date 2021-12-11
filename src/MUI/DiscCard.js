@@ -3,11 +3,29 @@ import { Card, CardContent, Typography, Grid, Button, Box, IconButton } from '@m
 import { makeStyles } from '@mui/styles';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
     cardMain: {
-        width: '130px',
-        height: '230px',
         borderRadius: 0,
+        [theme.breakpoints.only('xs')]: {
+            width: '150px',
+            height: '230px',
+        },
+        [theme.breakpoints.only('sm')]: {
+            width: '170px',
+            height: '230px',
+        },
+        [theme.breakpoints.only('md')]: {
+            width: '170px',
+            height: '230px',
+        },
+        [theme.breakpoints.up('md')]: {
+            width: '200px',
+            height: '230px',
+        },
+        [theme.breakpoints.only('xl')]: {
+            width: '200px',
+            height: '230px',
+        },
     },
     content: {
         textAlign: 'center',
@@ -21,8 +39,15 @@ const useStyle = makeStyles({
         textAlign: 'center',
         marginTop: -30
     },
-    boxBtn: {
-        marginTop: 0
+    boxBottom: {
+        display: "flex",
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: 30,
+        marginTop: 0,
+        [theme.breakpoints.down('xl')]: {
+            paddingLeft: 20, 
+        }
     },
     boxAtr: {
         marginTop: -50,
@@ -37,7 +62,7 @@ const useStyle = makeStyles({
     imageBtn: {
         borderRadius: '100%',
     },
-});
+}));
 
 function DiscCard(props) {
 
@@ -73,7 +98,8 @@ function DiscCard(props) {
                         </Grid>
                     </Grid>
                 </Box>
-                <Box className={ classes.boxBtn }>
+                <Box className={ classes.boxBottom }>
+                    <Typography>{disc.price.toFixed(2).toString().replace('.', ',')} €</Typography>
                     <IconButton onClick={ (e) => onAdd(disc) } className={ classes.button }>
                         <AddShoppingCartIcon />
                     </IconButton>

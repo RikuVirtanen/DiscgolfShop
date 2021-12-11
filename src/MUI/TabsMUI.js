@@ -9,6 +9,9 @@ const useStyles = makeStyles({
         '&:hover': {
             color: '#FFFFFF',
         },
+        '&:active': {
+            color: '#FFFFFF',
+        },
     }
 });
 
@@ -22,6 +25,7 @@ export default function TabsMUI() {
             <Tab className={ classes.tab } label='Tuotteet' component={ Link } to='/tuotteet'/>
             <Tab className={ classes.tab } label='Tietoa' component={ Link } to='/tietoa'/>
             <Tab className={ classes.tab } label='Palaute' component={ Link } to='/palaute'/>
+            <Tab className={ classes.tab } label='Lisää kiekko' component={ Link } to='/lisaa'/>
         </Box>
     );
 }

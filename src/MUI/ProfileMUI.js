@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Paper } from '@mui/material';
+import { Box, Grid, Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         textAlign: 'center',
     },
     paper: {
-        marginTop: '2vw',
+        marginTop: '0vw',
         padding: '5vw',
         minHeight: '70vh',
     }

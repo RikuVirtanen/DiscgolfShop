@@ -37,11 +37,11 @@ function MainPage() {
                 </Box>
                 <Paper className={ classes.paper } >
                     <Box className={ classes.container } >
-                        <Typography color='text.secondary' variant='h3'>ThrowTrue</Typography>
+                        <Typography color='text.primary' variant='h3'>ThrowTrue</Typography>
                         <br />
-                        <Typography color='text.secondary'>Tervetuloa Suomen suurimpaan frisbeegolfkauppaan</Typography>
+                        <Typography color='text.primary'>Tervetuloa Suomen suurimpaan frisbeegolfkauppaan</Typography>
                         <br />
-                        <Typography color='text.secondary'>Lorem Ipsum on yksinkertaisesti testausteksti, jota tulostus- ja ladontateollisuudet 
+                        <Typography color='text.primary'>Lorem Ipsum on yksinkertaisesti testausteksti, jota tulostus- ja ladontateollisuudet 
                             käyttävät. Lorem Ipsum on ollut teollisuuden normaali testausteksti jo 1500-luvulta asti, 
                             jolloin tuntematon tulostaja otti kaljuunan ja sekoitti sen tehdäkseen esimerkkikirjan. 
                             Se ei ole selvinnyt vain viittä vuosisataa, mutta myös loikan elektroniseen kirjoitukseen, 
@@ -49,7 +49,7 @@ function MainPage() {
                             paperiarkit, joissa oli Lorem Ipsum pätkiä, julkaistiin ja vielä myöhemmin tietokoneen 
                             julkistusohjelmissa, kuten Aldus PageMaker joissa oli versioita Lorem Ipsumista.</Typography>
                         <br />
-                        <Typography color='text.secondary'>Lorem Ipsum on yksinkertaisesti testausteksti, jota tulostus- ja ladontateollisuudet 
+                        <Typography color='text.primary'>Lorem Ipsum on yksinkertaisesti testausteksti, jota tulostus- ja ladontateollisuudet 
                             käyttävät. Lorem Ipsum on ollut teollisuuden normaali testausteksti jo 1500-luvulta asti, 
                             jolloin tuntematon tulostaja otti kaljuunan ja sekoitti sen tehdäkseen esimerkkikirjan. 
                             Se ei ole selvinnyt vain viittä vuosisataa, mutta myös loikan elektroniseen kirjoitukseen, 

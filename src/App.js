@@ -7,17 +7,18 @@ import Footer from "./MUI/Footer";
 import { useMediaQuery } from 'react-responsive';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MainPage from './MUI/MainPage';
-import ProductsMUI from './MUI/ProductsMUI';
+import GetData from './MUI/GetData';
 import Info from './MUI/Info';
 import FormPage from './MUI/FormPage';
 import ProfileMUI from './MUI/ProfileMUI';
+import ProductNavMUI from './MUI/ProductNavMUI';
 
 const theme = createTheme({
   palette: {
     primary: {main: '#000000', contrastText: '#FFFFFF'},
     secondary: {main: '#d3d3d3', contrastText: '#FFFFFF'},
-    text: {primary: '#d3d3d3', secondary: '#000000', contrastText: '#d3d3d3'},
-    action: {active: "#FFFFFF", hover: "#000000", selected: '#d32f2f'  },
+    text: {primary: '#000000', secondary: '#d3d3d3', contrastText: '#FFFFFF'},
+    action: {active: "#000000", hover: "#d3d3d3", selected: '#d32f2f'  },
     background: {default: "#FFFFFF", secondary: "#000000", contrastText: '#FFFFFF'}
   },
   typography: {
@@ -32,6 +33,8 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
 
+  const [total, setTotal] = useState(0);
+
   const onAdd = (product) => {
     const exists = cartItems.find((x) => x.id === product.id);
     if (exists) {
@@ -43,6 +46,7 @@ function App() {
     } else {
         setCartItems([...cartItems, {...product, qty: 1}]);
     }
+    setTotal(total + product.price);
 };
 
 const onRemove = (product) => {
@@ -56,6 +60,7 @@ const onRemove = (product) => {
             )
         );
     }
+    setTotal(total - product.price);
 };
 
   const mobile = useMediaQuery({query: '(max-width: 900px'});
@@ -66,27 +71,30 @@ const onRemove = (product) => {
         <CssBaseline />
         {mobile
         ? <Box>
-            <MainNavMobileMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } />
+            <MainNavMobileMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } total={ total } />
             <Box sx={{minHeight: '64.5vh', marginTop: '30vw', marginBottom: '2vw'}}>
               <Switch>
                 <Route exact path='/'><MainPage /></Route>
-                <Route path='/tuotteet'><ProductsMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } /></Route>
+                <Route path='/tuotteet'><ProductNavMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } total={ total }/></Route>
                 <Route path='/tietoa'><Info /></Route>
                 <Route path='/palaute'><FormPage /></Route>
+                <Route path='/profile'><ProfileMUI /></Route>
+                <Route path='/lisaa'><GetData /></Route>
                 <Route path='/*'><MainPage /></Route>
               </Switch>
             </Box>
             <Footer />
           </Box>
         : <Box>
-            <MainNavMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } />
-            <Box sx={{minHeight: '100vh', marginTop: '10vw', marginBottom: '2vw'}}>
+            <MainNavMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } total={ total } />
+            <Box sx={{minHeight: '100vh', marginTop: '15vh', marginBottom: '5vh'}}>
               <Switch>
                 <Route exact path='/'><MainPage /></Route>
-                <Route path='/tuotteet'><ProductsMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } /></Route>
+                <Route path='/tuotteet'><ProductNavMUI onAdd={ onAdd } onRemove={ onRemove } cartItems={ cartItems } total={ total } /></Route>
                 <Route path='/tietoa'><Info /></Route>
                 <Route path='/palaute'><FormPage /></Route>
                 <Route path='/profile'><ProfileMUI /></Route>
+                <Route path='/lisaa'><GetData /></Route>
                 <Route path='/*'><MainPage /></Route>
               </Switch>
             </Box>

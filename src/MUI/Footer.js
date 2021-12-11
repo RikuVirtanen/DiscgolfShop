@@ -27,25 +27,25 @@ function Footer() {
     return (
         <Box className={ classes.footer } >
             <Box className={ classes.box }>
-                <Typography variant='h7' fontWeight='bold' >Yhteystiedot</Typography>
+                <Typography variant='h7' color='text.secondary' fontWeight='bold' >Yhteystiedot</Typography>
             </Box>
             <Box className={ classes.box }>
-                <Typography fontSize='12px'>
+                <Typography color='text.secondary' fontSize='12px'>
                     ThrowTrue 
                 </Typography>
             </Box>
             <Box className={ classes.box }>
-                <Typography fontSize='12px'>
+                <Typography color='text.secondary' fontSize='12px'>
                     Eteläesplanadi 20
                 </Typography>
             </Box>
             <Box className={ classes.box }>
-                <Typography fontSize='12px'>
+                <Typography color='text.secondary' fontSize='12px'>
                     00130 Helsinki, SUOMI 
                 </Typography>
             </Box>
             <Box className={ classes.box }>
-                <Typography fontSize='12px'>CIN: 13254664-1354</Typography>
+                <Typography color='text.secondary' fontSize='12px'>CIN: 13254664-1354</Typography>
             </Box>
         </Box>
     );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Select, InputLabel, MenuItem, TextField, FormControl, Button, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import axios from 'axios';
 
 const useStyles = makeStyles({
     main: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         padding: '5vw',
-        paddingTop: '5vw'
+        paddingTop: '5vw',
     },
     select: {
         justifyContent: 'center',
@@ -29,10 +30,10 @@ const useStyles = makeStyles({
         width: '30vh',
     },
     typo: {
-        color: '#000000'
+        color: 'text.primary'
     },
     input: {
-        color: '#000000'
+        color: 'text.primary'
     }
 });
 
@@ -41,7 +42,8 @@ function DGForm() {
 
     const classes = useStyles();
 
-    const [requests, setRequests] = useState([]);
+    const [request, setRequest] = useState('');
+    const [msg, setMsg] = useState('');
 
     const [disc, setDisc] = useState({
         name: '',
@@ -59,7 +61,18 @@ function DGForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setRequests([...requests, `Pyrimme lisäämään ${disc.name} kiekon valmistajalta ${disc.company} valikoimiimme mahdollisimman pian!`]);
+        setRequest(`Kiekko: ${disc.name} \nValmistaja: ${disc.company}`);
+        axios.post('http://localhost:8080/palaute/save', request)
+        .then(response => {
+            if (response.status === 200) {
+                setMsg('Lisättiin');
+                console.log(msg);
+                setRequest(`Pyrimme lisäämään ${disc.name} kiekon valmistajalta ${disc.company} valikoimiimme mahdollisimman pian!`);
+            } else {
+                setMsg('Lisäys ei onnnistunut');
+                console.log(msg);
+            }
+        })
         handleReset(e);
         
         // methodi, joka lisää kiekon tietokantaan
@@ -129,10 +142,8 @@ function DGForm() {
             <br />
             <br />
             <br />
-            {requests.length > 0
-                ? (requests.map((request, index) => (
-                    <Typography key={index} >{request}</Typography>
-                )))
+            {request.length > 0
+                ? <Typography>{request}</Typography>
                 : null}
         </form>
     )

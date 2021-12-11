@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, Tab, Tabs, Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
-import DGlist from './DGlist';
 import PropTypes from 'prop-types';
+import GetDiscData from "./GetDiscData";
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -13,18 +13,20 @@ const useStyles = makeStyles(theme => ({
         width: '30vh',
         borderBottom: 1,
         borderColor: 'divider',
-        
-        left: '8vw',
         backgroundColor: '#FFFFFF',
         [theme.breakpoints.up('xs')]: {
-            left: '-5vw'
+            left: '-6vw'
         },
         [theme.breakpoints.up('sm')]: {
             marginTop:'-10vw',
-            left: '5vw'
+            left: '0vw'
         },
         [theme.breakpoints.up('md')]: {
-            left: '15vw',
+            left: '5vw',
+            marginTop: '0vw'
+        },
+        [theme.breakpoints.up('lg')]: {
+            left: '5vw',
             marginTop: '0vw'
         },
         
@@ -42,6 +44,7 @@ const useStyles = makeStyles(theme => ({
        
     },
     tab: {
+        color: 'text.primary',
         [theme.breakpoints.up('xs')]: {
             fontSize: '12px'
         },
@@ -51,24 +54,36 @@ const useStyles = makeStyles(theme => ({
     },
     main: {
         minHeight: '70vh',
-        [theme.breakpoints.up('xs')]: {
-            MaxWidth: '70vw',
+        [theme.breakpoints.only('xs')]: {
+            MaxWidth: '80vw',
             minWidth: '40vw',
-            marginLeft: '5vw',
-            marginTop: '-12vw'
+            marginLeft: '2vw',
+            marginTop: '0vw'
         },
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.only('sm')]: {
             MaxWidth: '70vw',
             minWidth: '55vw',
-            marginLeft: '-4vw',
+            marginLeft: '-10vw',
             marginTop: '-18vw'
         },
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.only('md')]: {
             MaxWidth: '170vw',
             minWidth: '60vw',
             marginLeft: '7vw',
             marginTop: '-4vw'
-        }
+        },
+        [theme.breakpoints.only('lg')]: {
+            MaxWidth: '170vw',
+            minWidth: '60vw',
+            marginLeft: '7vw',
+            marginTop: '-2vw'
+        },
+        [theme.breakpoints.only('xl')]: {
+            MaxWidth: '170vw',
+            minWidth: '60vw',
+            marginLeft: '15vw',
+            marginTop: '-2vw'
+        },
     }
 }));
 
@@ -106,7 +121,7 @@ function a11yProps(index) {
 
 function ProductNavMUI(props) {
 
-    const { onAdd, items } = props;
+    const { onAdd, items, discs } = props;
     const [value, setValue] = useState(0);
     const classes = useStyles();
 
@@ -117,7 +132,7 @@ function ProductNavMUI(props) {
     return (
         
         <Grid container spacing={0}>
-            <Grid item xs={12} >
+            <Grid item xs>
                 <Box className={ classes.nav }> 
                     <Tabs 
                     orientation='vertical'
@@ -125,7 +140,7 @@ function ProductNavMUI(props) {
                     value={ value } 
                     onChange={ handleChange } 
                     aria-label="Vertical tabs example"
-                    textColor={ 'primary' }
+                    textColor={ 'text.primary' }
                     indicatorColor={ 'primary' } 
                     className={ classes.tabs }>
                         <Tab className={ classes.tab } label='Kaikki' {...a11yProps(0)} />
@@ -136,21 +151,21 @@ function ProductNavMUI(props) {
                     </Tabs>
                 </Box>
             </Grid>
-            <Grid item xs={12} md={6} sm={10} className={ classes.main }>
+            <Grid item xs className={ classes.main }>
                 <TabPanel value={value} index={0}>
-                    <DGlist onAdd={ onAdd } type={'all'} items={ items } />
+                    <GetDiscData onAdd={ onAdd } type={'all'} items={ items } discs={ discs } />
                 </TabPanel> 
                 <TabPanel value={value} index={1}>
-                    <DGlist onAdd={ onAdd } type={'driver'} />
+                    <GetDiscData onAdd={ onAdd } type={'driver'} items={ items } discs={ discs } />
                 </TabPanel> 
                 <TabPanel value={value} index={2}>
-                    <DGlist onAdd={ onAdd } type={'fairway driver'} />
+                    <GetDiscData onAdd={ onAdd } type={'fairway driver'} items={ items } discs={ discs } />
                 </TabPanel>
                 <TabPanel value={value} index={3}>
-                    <DGlist onAdd={ onAdd } type={'midrange'} />
+                    <GetDiscData onAdd={ onAdd } type={'midrange'} items={ items } discs={ discs } />
                 </TabPanel>
                 <TabPanel value={value} index={4}>
-                    <DGlist onAdd={ onAdd } type={'putter'} />
+                    <GetDiscData onAdd={ onAdd } type={'putter'} items={ items } discs={ discs } />
                 </TabPanel>
             </Grid>
         </Grid>

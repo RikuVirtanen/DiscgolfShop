@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         alignContent: 'center',
         alignItems: 'center',
         minHeight: '50vh',
-        paddingTop: '10vh'
+        paddingTop: '10vh',
     },
     typo: {
         color: '#000000'

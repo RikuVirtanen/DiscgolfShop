@@ -38,7 +38,7 @@ function MenuMUI () {
    
      return (
        <Box className={ classes.container }>
-         <IconButton onClick={ handleMenu } color='inherit'>
+         <IconButton onClick={ handleMenu } color='secondary'>
             <MenuIcon />
           </IconButton>
           <MenuList>

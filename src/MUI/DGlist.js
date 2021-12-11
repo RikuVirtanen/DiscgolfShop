@@ -1,25 +1,29 @@
-import React, {useState} from "react";
+import React from "react";
 import { Grid } from '@mui/material';
 import DiscCard from "./DiscCard";
-import Discs from '../discs.json';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(e => ({
     container: {
-        [e.breakpoints.up('xs')]: {
+        [e.breakpoints.only('xs')]: {
             margin: '-10px',
             marginBottom: '20px',
-            marginTop: 0, 
+            marginTop: '-5vh', 
         },
-        [e.breakpoints.up('sm')]: {
-            margin: '-40px',
+        [e.breakpoints.only('sm')]: {
             marginBottom: '20px',
-            marginTop: 0, 
+            marginTop: '1vh', 
         },
-        [e.breakpoints.up('md')]: {
+        [e.breakpoints.only('md')]: {
             margin: '15vh',
             marginBottom: '20px',
             marginTop: 0, 
+        },
+        [e.breakpoints.only('lg')]: {
+            marginLeft: '-15vw'
+        },
+        [e.breakpoints.only('xl')]: {
+            marginLeft: '-15vw'
         },
         
     },
@@ -31,7 +35,6 @@ const useStyles = makeStyles(e => ({
             marginLeft: '-20px'
         },
         [e.breakpoints.up('md')]: {
-            marginLeft: '-30px'
         }
     }
 }));
@@ -40,15 +43,13 @@ function DGlist(props) {
 
     const classes = useStyles();
 
-    const { onAdd, type, items } = props;
-
-    const [ discs ] = useState(Discs);
+    const { onAdd, type, items, discs } = props;
 
     if (type === 'all') {
         return (
-            <Grid container className={ classes.container } spacing={2} >
+            <Grid container className={ classes.container } rowSpacing={{ xs: 2, sm: 2, md: 2}} columnSpacing={{ xs: 2, sm: 4, md: 0 }} >
                 {discs.map( (disc) => (
-                    <Grid item className={ classes.item } key={disc.id} xs={8} md={3} sm={6} >
+                    <Grid container item className={ classes.item } key={disc.id} xs={12} sm={6} md={3}  >
                         <DiscCard onAdd={ onAdd } disc={disc} items={ items } />
                     </Grid> ))}
             </Grid>
@@ -60,7 +61,7 @@ function DGlist(props) {
             {discs.map( (disc) => (
                 disc.type.toLowerCase() === type 
                 ? 
-                (<Grid item className={ classes.item } key={disc.id} xs={8} md={3} sm={6}>
+                (<Grid item className={ classes.item } key={disc.id} xs={12} sm={6} md={3} >
                     <DiscCard onAdd={ onAdd } disc={disc} items={ items } />
                 </Grid>) 
                 : null

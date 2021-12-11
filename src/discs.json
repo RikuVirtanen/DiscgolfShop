@@ -8,6 +8,8 @@
         "glide": 6, 
         "turn": -3, 
         "fade": 2, 
+        "price": 0,
+        "info": "",
         "image": "https://varuste.net/tiedostot/1/kuva/tuote/600/12706439.jpg"
     },
     {
@@ -19,6 +21,8 @@
         "glide": 5, 
         "turn": -1, 
         "fade": 3,
+        "price": 0,
+        "info": "",
         "image": "https://img.powergrip.fi/products/stdestrw2x/stdestrw2x.jpg?Pbx7twUJwyDEeB9N" 
     },
     {
@@ -30,6 +34,8 @@
         "glide": 6, 
         "turn": -2, 
         "fade": 2,
+        "price": 0,
+        "info": "",
         "image": "https://frisbeemarket.com/wp-content/uploads/2019/03/corvette_star-stockrun.png" 
     },
     {
@@ -41,6 +47,8 @@
         "glide": 4, 
         "turn": 0, 
         "fade": 2,
+        "price": 0,
+        "info": "",
         "image": "https://www.innovastore.fi/tuotekuvat/600x600/Star_Teebird3.png" 
     },
     {
@@ -52,6 +60,8 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1,
+        "price": 0,
+        "info": "",
         "image": "https://media.hintaseuranta.fi/prod/i26319141w2000h2000.jpg" 
     },
     {
@@ -63,6 +73,8 @@
         "glide": 4, 
         "turn": 0, 
         "fade": 2,
+        "price": 0,
+        "info": "",
         "image": "https://cdn11.bigcommerce.com/s-yt68tfv9/images/stencil/2000x2000/products/300/33614/959-1a__15243.1631644883.jpg?c=2" 
     },
     {
@@ -74,6 +86,8 @@
         "glide": 5, 
         "turn": -1, 
         "fade": 1,
+        "price": 0,
+        "info": "",
         "image": "https://www.hockeylahti.fi/wp-content/uploads/2021/03/GEO-ORIGIN.jpg" 
     },
     {
@@ -85,6 +99,8 @@
         "glide": 5, 
         "turn": 0, 
         "fade": 3,
+        "price": 0,
+        "info": "",
         "image": "https://img.powergrip.fi/products/evnemeth/evnemeth.jpg?vjyIddmwpbmHt21z" 
     },
     {
@@ -96,6 +112,8 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 0,
+        "price": 0,
+        "info": "",
         "image": "https://frisbeemarket.com/wp-content/uploads/2021/10/innova_nova_600.png" 
     },
     {
@@ -106,7 +124,9 @@
         "speed": 4, 
         "glide": 3, 
         "turn": 0, 
-        "fade": 2, 
+        "fade": 2,
+        "price": 0, 
+        "info": "",
         "image": "https://img.powergrip.fi/products/aprmaes/aprmaes.jpg?drH339d26mspiNfi"
     },
     {
@@ -118,6 +138,8 @@
         "glide": 5, 
         "turn": 0, 
         "fade": 1, 
+        "price": 0,
+        "info": "",
         "image": "https://varuste.net/tiedostot/1/kuva/tuote/600/12762340.jpg"
     },
     {
@@ -129,6 +151,8 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1, 
+        "price": 0,
+        "info": "",
         "image": "https://img.powergrip.fi/products/evfexlink/evfexlink.jpg?1QK0nlDpwF3tD5IQ"
     },
     {
@@ -140,6 +164,8 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1, 
+        "price": 0,
+        "info": "",
         "image": "https://d3d4to3qraukqq.cloudfront.net/pub/Lajittelemattomat+tuotekuvat/DISCMANIA_DISC_ACTIVE_PREMIUM_SENSEI_-_PUTTER_56540973-2.jpg?c=system_1024x"
     },
     {
@@ -151,6 +177,8 @@
         "glide": 3, 
         "turn": 0, 
         "fade": 1, 
+        "price": 0,
+        "info": "",
         "image": "https://cdn.shopify.com/s/files/1/0005/7779/8204/products/DM_Evolution_Logic_Grey_WBG_2048x2048.jpg?v=1623178621"
     },
     {
@@ -162,6 +190,8 @@
         "glide": 5, 
         "turn": -1, 
         "fade": 3, 
+        "price": 0,
+        "info": "",
         "image": "https://img.karkkainen.com/images/c_pad,f_auto,h_720,q_auto,w_650/v1/tuotekuvat/7330056037181/latitude-64-ballista-retro-draiveri.jpg"
     },
     {
@@ -173,6 +203,8 @@
         "glide": 6, 
         "turn": -2, 
         "fade": 3, 
+        "price": 0,
+        "info": "",
         "image": "https://www.latitude64.se/wp-content/uploads/2019/04/Opto-Bolt-Turqois-1030x1030.jpg"
     },
     {
@@ -184,6 +216,8 @@
         "glide": 5, 
         "turn": -0.5, 
         "fade": 3, 
+        "price": 0,
+        "info": "",
         "image": ""
     }
 

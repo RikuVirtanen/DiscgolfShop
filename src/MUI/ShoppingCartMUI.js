@@ -20,6 +20,11 @@ const useStyles = makeStyles(e => ({
         marginTop: '3vh',
         color: '#000000',
     },
+    itemGroup: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
     item: {
         display: 'block',
         textAlign: 'center',
@@ -84,7 +89,7 @@ const useStyles = makeStyles(e => ({
 
 function ShoppingCart(props) {
 
-    const { onAdd, onRemove, cartItems } = props;
+    const { onAdd, onRemove, cartItems, total } = props;
 
     const classes = useStyles();
 
@@ -113,16 +118,18 @@ function ShoppingCart(props) {
                 {cartItems.map((item) => (
                 <List key={item.id} className={ classes.list }>
                     <hr />
-                    <ListItem className={ classes.item }>
-                        <Typography className={ classes.company } >
-                            {item.company}
-                        </Typography>
+                    <ListItem className={ classes.itemGroup }>
+                        <img src={item.image} alt="disc" width='80vw' />
+                        <span>
+                            <Typography className={ classes.company } >
+                                {item.company}
+                            </Typography>
+                            <Typography fontSize='18px' fontWeight='bold' className={ classes.name } >
+                                {item.name}
+                            </Typography>
+                        </span>
                     </ListItem>
-                    <ListItem className={ classes.item }>
-                        <Typography className={ classes.name } >
-                            {item.name}
-                        </Typography>
-                    </ListItem>
+                    
                     <ListItem className={ classes.bottom } >
                         <Button color='primary' onClick={ () => onAdd(item) }>
                             <AddIcon className={ classes.bottomBtn } />
@@ -131,16 +138,16 @@ function ShoppingCart(props) {
                             <RemoveIcon className={ classes.bottomBtn } />
                         </Button>
                         <Typography className={ classes.typoRight } >{item.qty} kpl</Typography>
+                        <span>&nbsp;&nbsp;&nbsp;</span>
+                        <Typography>{((item.price * item.qty).toFixed(2)).toString().replace('.', ',')} €</Typography>
                     </ListItem>
-                    
-                    {/*<ListItem>
-                        {item.qty} x ${item.price.toFixed(2)}
-                    </ListItem>*/}
-                    {/*<CashierMUI />*/}
                     <hr />
                 </List>
                 ))}
-                
+                {total > 0 ?
+                <Typography fontWeight = 'bold'>Yhteissumma: {total.toFixed(2).toString().replace('.', ',')}</Typography>
+                :null}
+                <br />
             </Drawer>
         </Box>
         

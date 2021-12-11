@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export default function NavButtonsMUI(props) {
 
-    const { onAdd, onRemove, cartItems } = props;
+    const { onAdd, onRemove, cartItems, total } = props;
     
     const classes = useStyles();
 
@@ -29,9 +29,10 @@ export default function NavButtonsMUI(props) {
         <Box className={ classes.container }>
             <UserDropMenuMUI />
             <ShoppingCart 
-                onAdd={ onAdd } 
-                onRemove={ onRemove } 
+                onAdd = { onAdd } 
+                onRemove = { onRemove } 
                 cartItems = {cartItems} 
+                total = { total }
             /> 
             <Box>
                 <Button className={ classes.login } component={ Link } to="/" >
